@@ -30,6 +30,9 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+    <!-- start custom css -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/customs/css/custom_galeri.css">
+    <!-- end custom css -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

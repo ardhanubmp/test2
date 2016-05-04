@@ -23,7 +23,7 @@ class Dashboard extends CI_Controller {
 		$comp=array(
 			"content"=>$this->load->view('template/content',array(),true),
 			"header"=>$this->header(),
-			"menu_kiri"=>$this->menu_kiri(),
+			"menu_kiri"=>$this->menu_kiri('dashboard'),
 			"control_sidebar"=>$this->control_sidebar(),
 			);
 		$this->load->view('template/base',$comp);
@@ -32,8 +32,8 @@ class Dashboard extends CI_Controller {
 	public function header(){
 		return $this->load->view('template/header',array(),true);
 	}
-	public function menu_kiri(){
-		return $this->load->view('template/menu_kiri',array(),true);
+	public function menu_kiri($menu){
+		return $this->load->view('template/menu_kiri',array('menu'=>$menu),true);
 	}
 	public function control_sidebar(){
 		return $this->load->view('template/control_sidebar',array(),true);

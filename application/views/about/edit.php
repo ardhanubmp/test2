@@ -3,8 +3,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Dashboard
-            <small>Control panel</small>
+            About
+            <small>Menu About</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -27,6 +27,17 @@
                   <h3 class="box-title">Data About</h3>
                 </div>
                 <div class="box-body">
+                  <?php if (isset($status)): ?>
+                    <div class="alert alert-warning alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <?php echo $status; ?>
+                    </div>
+                    <div class="alert alert-success alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <?php echo $status_query; ?>
+                    </div>  
+                  <?php endif ?>
+                  
                   <form class="form" action="<?php echo base_url() ?>about/aksi_ubah" method="post"
                   enctype="multipart/form-data">
                     <?php foreach ($data as $row) { ?>
@@ -36,9 +47,10 @@
                     </div>
                     <div class="form-group">
                       <label class="control-label">Gambar</label>
-                      <img src="" class="img-responsive img-thumbnail" style="width: 100px;">
-                      <input type="file" name="gambar" class="form-control"></input>
-                      <input type="text" name="id" value="<?php echo $row->id; ?>"></input>
+                      <img src="<?php echo base_url(); ?>assets/uploads/images/<?php echo $row->gambar; ?>" class="img-responsive img-thumbnail" style="width: 100px;">
+                      <input type="file" name="gambar" class=""></input>
+                      <input type="hidden" name="id" value="<?php echo $row->id; ?>"></input>
+                      <input type="hidden" name="gambar_temp" value="<?php echo $row->gambar; ?>"></input>
                     </div>
                     <div class="form-group">
                       <input type="submit" value="Simpan" class="btn btn-primary"></input>

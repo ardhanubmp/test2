@@ -27,20 +27,20 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="active">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                <i id="dashboard" class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
             </li>
-            <li class="treeview">
+            <li id="halaman_depan" class="treeview">
               <a href="#">
                 <i class="fa fa-files-o"></i>
                 <span>Halaman Depan</span>
                 <span class="label label-primary pull-right">4</span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Galeri</a></li>
-                <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>About</a></li>
-                <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i>FAQ</a></li>
-                <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Testimoni</a></li>
+                <li id="galeri"><a href="<?php echo base_url(); ?>galeri"><i class="fa fa-circle-o"></i>Galeri</a></li>
+                <li id="about"><a href="<?php echo base_url(); ?>about"><i class="fa fa-circle-o"></i>About</a></li>
+                <li id="faq"><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i>FAQ</a></li>
+                <li id="testimoni"><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Testimoni</a></li>
               </ul>
             </li>
             <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
