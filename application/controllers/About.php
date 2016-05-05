@@ -29,26 +29,19 @@ class About extends CI_Controller {
 		// $this->load->model('About_model');
 		$data=$this->About_model->getAbout();
 
-		$comp=array(
-			"content"=>$this->load->view('about/content',array('data'=>$data),true),
-			"header"=>$this->header(),
-			"menu_kiri"=>$this->menu_kiri('about'),
-			"control_sidebar"=>$this->control_sidebar(),
-			);
-		$this->load->view('template/base',$comp);
+		$this->load->view('template/header');
+		$this->load->view('template/menu_header');
+		$this->load->view('about/content',array('data'=>$data));
+		$this->load->view('template/footer');		
 	}
 
 	public function ubah(){
-		// $this->load->model('About_model');
 		$data=$this->About_model->getAbout();
-		$comp=array(
-			"content"=>$this->load->view('about/edit',array(
-				'data'=>$data),true),
-			"header"=>$this->header(),
-			"menu_kiri"=>$this->menu_kiri('about'),
-			"control_sidebar"=>$this->control_sidebar(),
-			);
-		$this->load->view('template/base',$comp);
+
+		$this->load->view('template/header');
+		$this->load->view('template/menu_header');
+		$this->load->view('about/edit',array('data'=>$data));
+		$this->load->view('template/footer');		
 	}
 
 	public function aksi_ubah(){
@@ -82,28 +75,16 @@ class About extends CI_Controller {
 				$status_query="Data Berhasil Disimpan";
 			}
          
-			$data=$this->About_model->getAbout();
-			$comp=array(
-			"content"=>$this->load->view('about/edit',array(
-				'data'=>$data,
+			$data_html=$this->About_model->getAbout();
+
+		$this->load->view('template/header');
+		$this->load->view('template/menu_header');
+		$this->load->view('about/edit',array(
+				'data'=>$data_html,
 				"status"=>$report,
-				"status_query"=>$status_query),true),
-			"header"=>$this->header(),
-			"menu_kiri"=>$this->menu_kiri('about'),
-			"control_sidebar"=>$this->control_sidebar(),
-			);
-			$this->load->view('template/base',$comp);		
+				"status_query"=>$status_query));
+		$this->load->view('template/footer');				
 		
 	}
 
-	public function header(){
-		return $this->load->view('template/header',array(),true);
-	}
-	public function menu_kiri($menu){
-
-		return $this->load->view('template/menu_kiri',array("menu"=>$menu),true);
-	}
-	public function control_sidebar(){
-		return $this->load->view('template/control_sidebar',array(),true);
-	}
 }

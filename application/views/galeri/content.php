@@ -44,18 +44,20 @@
                                 <div class="overlay">
                                     <h2>Perbesar</h2>
                                     <p class="icon-links">
-                                        <a href="#" alt="edit foto">
+                                        <button class="btn btn-flat btn-success" type="button" data-toggle="modal" data-target="#editGaleri" data-gambar="<?php echo $row->gambar; ?>" data-idgambar="<?php echo $row->id; ?>" data-deskripsi="<?php echo $row->deskripsi; ?>" data-judul="<?php echo $row->judul; ?>"> 
                                             <span class="fa fa-edit" ></span>
-                                        </a>
-                                        <a href="#">
+                                        </button>
+                                        <button type="button" class="btn btn-flat btn-success" data-toggle="modal" data-target="#deleteGaleri" data-idgambar="<?php echo $row->id; ?>" data-link="<?php echo base_url(); ?>galeri/deletegaleri/<?php echo $row->id; ?>">
                                             <span class="fa fa-trash"></span>
-                                        </a>
+                                        </button>
                                     </p>
                                 </div>
                         </div>  
                     </div>
                     <?php } ?>
                     <?php endif ?>
+
+                    
                   </div>
                     
                 </div><!-- /.chat -->
@@ -67,3 +69,62 @@
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
+
+<div class="modal fade" id="editGaleri" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+      </div>
+      <div class="modal-body">
+        <form method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>galeri/editGaleriProses">
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Id:</label>
+            <input name="idgambar" type="text" readonly="" class="form-control" id="idgambar">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Judul:</label>
+            <input name="judulgambar" type="text" class="form-control" id="judulgambar">
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Deskripsi:</label>
+            <input name="deskripsigambar" type="text" class="form-control" id="deskripsigambar">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Gambar</label><br>
+            <img src="" class="img-thumbnail" style="max-height: 100px" id="gambar">
+            <input type="text" name="gambar_temp" id="gambar_temp"></input>
+            <input name="gambar" type="file" class="form-control"></input>
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Send message</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+<div class="modal fade" id="deleteGaleri" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+      </div>
+      <div class="modal-body">
+        Apa Anda yakin akan menghapus gambar ini ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a class="btn btn-primary">Delete Gambar</a>
+        
+      </div>
+    </div>
+  </div>
+</div>  
+

@@ -19,23 +19,12 @@ class Dashboard extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
-		$comp=array(
-			"content"=>$this->load->view('template/content',array(),true),
-			"header"=>$this->header(),
-			"menu_kiri"=>$this->menu_kiri('dashboard'),
-			"control_sidebar"=>$this->control_sidebar(),
-			);
-		$this->load->view('template/base',$comp);
+	{	
+
+		$this->load->view('template/header');
+		$this->load->view('template/menu_header');
+		$this->load->view('template/content');
+		$this->load->view('template/footer');
 	}
 
-	public function header(){
-		return $this->load->view('template/header',array(),true);
-	}
-	public function menu_kiri($menu){
-		return $this->load->view('template/menu_kiri',array('menu'=>$menu),true);
-	}
-	public function control_sidebar(){
-		return $this->load->view('template/control_sidebar',array(),true);
-	}
 }

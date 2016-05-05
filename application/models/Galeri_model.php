@@ -20,5 +20,14 @@ class Galeri_model extends CI_Model
 	public function insertGaleri($data){
 		$this->db->insert($this->table,$data);
 	}
+
+	public function updateGaleri($id,$data){
+		$this->db->where('id',$id);
+		$this->db->update($this->table,$data);
+	}
+
+	public function deleteGaleri($id){
+		$this->db->delete($this->table,array('id'=>$id));
+	}
 }
  ?>
