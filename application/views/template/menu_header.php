@@ -292,6 +292,7 @@
                 <li id="about"><a href="<?php echo base_url(); ?>about"><i class="fa fa-circle-o"></i>About</a></li>
                 <li id="faq"><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i>FAQ</a></li>
                 <li id="testimoni"><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Testimoni</a></li>
+                <li id="termncondition"><a href="<?php echo base_url(); ?>termncondition"><i class="fa fa-circle-o"></i>Term N Condition</a></li>
               </ul>
             </li>
             <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
