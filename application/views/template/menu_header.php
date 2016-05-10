@@ -298,6 +298,7 @@
                 <li id="harga"><a href="<?php echo base_url(); ?>harga"><i class="fa fa-circle-o"></i>Harga</a></li>
               </ul>
             </li>
+            <li><a href="<?php echo base_url(); ?>voucher"><i class="fa fa-book"></i> <span>Voucher</span></a></li>
             <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
           </ul>
         </section>
