@@ -290,9 +290,12 @@
               <ul class="treeview-menu">
                 <li id="galeri"><a href="<?php echo base_url(); ?>galeri"><i class="fa fa-circle-o"></i>Galeri</a></li>
                 <li id="about"><a href="<?php echo base_url(); ?>about"><i class="fa fa-circle-o"></i>About</a></li>
-                <li id="faq"><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i>FAQ</a></li>
+                <li id="faq"><a href="<?php echo base_url(); ?>faq"><i class="fa fa-circle-o"></i>FAQ</a></li>
                 <li id="testimoni"><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Testimoni</a></li>
                 <li id="termncondition"><a href="<?php echo base_url(); ?>termncondition"><i class="fa fa-circle-o"></i>Term N Condition</a></li>
+                <li id="termncondition"><a href="<?php echo base_url(); ?>howtoorder"><i class="fa fa-circle-o"></i>How To Order</a></li>
+                <li id="bannerpromo"><a href="<?php echo base_url(); ?>banner_promo"><i class="fa fa-circle-o"></i>Banner Promo</a></li>
+                <li id="harga"><a href="<?php echo base_url(); ?>harga"><i class="fa fa-circle-o"></i>Harga</a></li>
               </ul>
             </li>
             <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>

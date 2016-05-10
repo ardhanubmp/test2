@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Faq extends CI_Controller {
+class Banner_promo extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,35 +21,35 @@ class Faq extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('Faq_model');
+        $this->load->model('Banner_promo_model');
     }
 
 	public function index()
 	{	
 	
-		// $this->load->model('Faq_model');
-		$data=$this->Faq_model->getFaq();
+		// $this->load->model('Banner_promo_model');
+		$data=$this->Banner_promo_model->getBannerPromo();
 
 		$this->load->view('template/header');
 		$this->load->view('template/menu_header');
-		$this->load->view('faq/content',array('data'=>$data));
+		$this->load->view('banner_promo/content',array('data'=>$data));
 		$this->load->view('template/footer');		
 	}
 
-	public function editFaq(){
-		$data=$this->Faq_model->getFaq();
+	// public function editBannerPromo(){
+	// 	$data=$this->Banner_promo_model->getBannerPromo();
 
-		$this->load->view('template/header');
-		$this->load->view('template/menu_header');
-		$this->load->view('faq/edit',array('data'=>$data));
-		$this->load->view('template/footer');		
-	}
+	// 	$this->load->view('template/header');
+	// 	$this->load->view('template/menu_header');
+	// 	$this->load->view('hto/edit',array('data'=>$data));
+	// 	$this->load->view('template/footer');		
+	// }
 
-	public function editFaqProses(){
+	public function editBannerPromoProses(){
 				$config['upload_path']          = './assets/uploads/images/';
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['max_size']             = 100;
-                $config['max_width']            = 1024;
+                $config['max_width']            = 1170;
                 $config['max_height']           = 768;
                 $this->load->library('upload', $config);
                 
@@ -67,20 +67,20 @@ class Faq extends CI_Controller {
 			
          	$id=$this->input->post('id');
 			$data= array(
-			"deskripsi"=>$this->input->post('deskripsi'),
+			"alt_image"=>$this->input->post('alt_image'),
 			"gambar"=>$gambar
 			);
-			if ($this->Faq_model->editFaq($id,$data)) {
+			if ($this->Banner_promo_model->editBannerPromo($id,$data)) {
 				$status_query="Data Gagal Disimpan";
 			}else{
 				$status_query="Data Berhasil Disimpan";
 			}
          
-			$data_html=$this->Faq_model->getFaq();
+			$data_html=$this->Banner_promo_model->getBannerPromo();
 
 		$this->load->view('template/header');
 		$this->load->view('template/menu_header');
-		$this->load->view('faq/edit',array(
+		$this->load->view('banner_promo/content',array(
 				'data'=>$data_html,
 				"status"=>$report,
 				"status_query"=>$status_query));

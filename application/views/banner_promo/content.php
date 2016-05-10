@@ -3,8 +3,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            About
-            <small>Menu About</small>
+            Dashboard
+            <small>Control panel</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -37,25 +37,37 @@
                       <?php echo $status_query; ?>
                     </div>  
                   <?php endif ?>
-                  
-                  <form class="form" action="<?php echo base_url() ?>termncondition/editTermNConditionProses" method="post"
-                  enctype="multipart/form-data">
-                    <?php foreach ($data as $row) { ?>
+
+                  <?php foreach ($data as $row) {
+                    $id_banner=$row->id;
+                    $alt_image=$row->alt_image;
+                   ?>
+                  <div class="banner">
+                    <img src="<?php echo base_url()."assets/uploads/images/".$row->gambar; ?>" class="img-responsive img-rhumbnail">
+                  </div>
+                  <?php } ?>
+                  </hr>
+                  <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>banner_promo/editBannerPromoProses" enctype="multipart/form-data">
                     <div class="form-group">
-                      <label class="control-label">Deskripsi</label>
-                      <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="deskripsi"><?php echo $row->deskripsi; ?></textarea>
+                      <label class="col-md-2 label-control">Gambar</label>
+                      <div class="col-md-10">
+                        <input type="file" name="gambar" class="form-control"></input>
+                        <small>*maksimal lebar gambar adalah 1170px dan tinggi 150px</small>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <label class="control-label">Gambar</label>
-                      <img src="<?php echo base_url(); ?>assets/uploads/images/<?php echo $row->gambar; ?>" class="img-responsive img-thumbnail" style="width: 100px;">
-                      <input type="file" name="gambar" class=""></input>
-                      <input type="hidden" name="id" value="<?php echo $row->id; ?>"></input>
-                      <input type="hidden" name="gambar_temp" value="<?php echo $row->gambar; ?>"></input>
+                      <label class="col-md-2 label-control">Alt gambar</label>
+                      <div class="col-md-10">
+                        <input value="<?php echo $alt_image; ?>" type="text" name="alt_image" class="form-control" placeholder="alternatif gambar berupa text apabila gambar tidak muncul"></input>
+                        <small>alternatif gambar berupa text ketika gambar tidak muncul</small>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <input type="submit" value="Simpan" class="btn btn-primary"></input>
+                      <div class="col-md-10 col-md-offset-2">
+                        <input type="hidden" name="id" value="<?php echo $id_banner; ?>"></input>
+                        <input type="submit" name="simpanbanner" class="btn btn-success" value="Simpan Banner"></input>
+                      </div>
                     </div>
-                    <?php } ?>
                   </form>
                 </div><!-- /.chat -->
               </div><!-- /.box (chat box) -->

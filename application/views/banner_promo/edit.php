@@ -38,7 +38,7 @@
                     </div>  
                   <?php endif ?>
                   
-                  <form class="form" action="<?php echo base_url() ?>termncondition/editTermNConditionProses" method="post"
+                  <form class="form" action="<?php echo base_url() ?>howtoorder/editHtoProses" method="post"
                   enctype="multipart/form-data">
                     <?php foreach ($data as $row) { ?>
                     <div class="form-group">

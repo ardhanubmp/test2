@@ -30,17 +30,17 @@
                   <table class="table table-hover">
                     <tr>
                       <th>ID</th>
+                      <th>Harga (Rp)</th>
                       <th>Deskripsi</th>
-                      <th>Gambar</th>
                       <th>Aksi</th>
                     </tr>
                     <?php foreach ($data as $row) { ?>
                       <tr>
                         <td><?php echo $row->id; ?></td>
-                        <td><?php echo substr($row->deskripsi, 0,100)."..."; ?></td>
-                        <td><?php echo $row->gambar; ?></td>
+                        <td><?php echo $row->harga; ?></td>
+                        <td><?php echo $row->deskripsi; ?></td>
                         <td>
-                          <a class="btn btn-flat btn-primary" href="<?php echo base_url(); ?>termncondition/editTermNCondition">Ubah</a>
+                          <a class="btn btn-flat btn-primary" href="<?php echo base_url(); ?>about/ubah">Ubah</a>
                         </td>
                       </tr>
                     <?php } ?>

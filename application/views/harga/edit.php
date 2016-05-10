@@ -38,22 +38,30 @@
                     </div>  
                   <?php endif ?>
                   
-                  <form class="form" action="<?php echo base_url() ?>termncondition/editTermNConditionProses" method="post"
+                  <form class="form-horizontal" action="<?php echo base_url() ?>harga/aksi_ubah" method="post"
                   enctype="multipart/form-data">
                     <?php foreach ($data as $row) { ?>
                     <div class="form-group">
-                      <label class="control-label">Deskripsi</label>
-                      <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="deskripsi"><?php echo $row->deskripsi; ?></textarea>
+                      <label class="control-label col-md-2">Harga</label>
+                      <div class="col-md-10">
+                        <div class="input-group">
+                          <span class="input-group-addon"><b>Rp</b></span>
+                          <input name="harga" type="text" value="<?php echo $row->harga; ?>" name="harga" class="form-control"></input>
+                        </div>
+                        <input type="hidden" name="id" value="<?php echo $row->id; ?>"></input>
+                      </div>
+                        
                     </div>
                     <div class="form-group">
-                      <label class="control-label">Gambar</label>
-                      <img src="<?php echo base_url(); ?>assets/uploads/images/<?php echo $row->gambar; ?>" class="img-responsive img-thumbnail" style="width: 100px;">
-                      <input type="file" name="gambar" class=""></input>
-                      <input type="hidden" name="id" value="<?php echo $row->id; ?>"></input>
-                      <input type="hidden" name="gambar_temp" value="<?php echo $row->gambar; ?>"></input>
+                      <label class="control-label col-md-2">Deskripsi</label>
+                      <div class="col-md-10">
+                        <input type="text" value="<?php echo $row->deskripsi; ?>" name="deskripsi" class="form-control"></input>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <input type="submit" value="Simpan" class="btn btn-primary"></input>
+                      <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Simpan" class="btn btn-primary"></input>                 
+                      </div>
                     </div>
                     <?php } ?>
                   </form>
