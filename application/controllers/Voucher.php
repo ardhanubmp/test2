@@ -35,14 +35,22 @@ class Voucher extends CI_Controller {
 		$this->load->view('template/footer');		
 	}
 
-	public function ubah(){
-		$data=$this->Voucher_model->getVoucher();
+	public function ubahstatus(){
+		if ($this->uri->segment(3) === false) {
+			$id=0;
+			$this->index();
+		}else{
+			$id=$this->uri->segment(3);
+			$status=$this->uri->segment(4);
+		}
 
-		$this->load->view('template/header');
-		$this->load->view('template/menu_header');
-		$this->load->view('about/edit',array('data'=>$data));
-		$this->load->view('template/footer');		
-	}	
+		if ($this->Voucher_model->ubahStatus($id,$status) === true) {
+			$this->index();
+		}else{
+			$this->index();
+		}
+
+	}
 
 	public function addvoucher(){
 		$this->load->view('template/header');
@@ -79,35 +87,10 @@ class Voucher extends CI_Controller {
 		$this->load->view('template/footer');	
 	}
 
-	public function aksi_ubah(){
-				
-			
-         	$id=$this->input->post('id');
-			$data= array(
-			"deskripsi"=>$this->input->post('deskripsi'),
-			"gambar"=>$gambar
-			);
-			if ($this->Voucher_model->updateAbout($id,$data)) {
-				$status_query="Data Gagal Disimpan";
-			}else{
-				$status_query="Data Berhasil Disimpan";
-			}
-         
-			$data_html=$this->Voucher_model->getVoucher();
-
-		$this->load->view('template/header');
-		$this->load->view('template/menu_header');
-		$this->load->view('about/edit',array(
-				'data'=>$data_html,
-				"status"=>$report,
-				"status_query"=>$status_query));
-		$this->load->view('template/footer');				
-		
-	}
 
 	public function deletevoucher($id){
 		
-		if ($this->Voucher_model->deleteVoucher($id)) {
+		if ($this->Voucher_model->deleteVoucher($id) === true) {
 			echo "done";	# code...
 		}else{
 			echo "fail";

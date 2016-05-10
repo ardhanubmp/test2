@@ -31,5 +31,11 @@ class Voucher_model extends CI_Model
 		$this->db->update($this->table,$data);
 	}
 
+	public function ubahStatus($id,$status){
+		$this->db->set('status',$status);
+		$this->db->where('id',$id);
+		$this->db->update($this->table);
+	}
+
 }
  ?>

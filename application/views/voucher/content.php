@@ -32,7 +32,7 @@
                     <tr>
                       <th>ID</th>
                       <th>Kode Voucher</th>
-                      <th>Tgl Kadaluarsa</th>
+                      <th>Status</th>
                       <th>Persentase</th>
                       <th>Aksi</th>
                     </tr>
@@ -43,9 +43,9 @@
                         <td>
                           <?php 
                           if ($row->status=='aktif') {
-                            echo '<a href="" class="btn btn-success btn-flat">'.$row->status.'</a>';
+                            echo '<a href="'.base_url().'voucher/ubahstatus/'.$row->id.'/nonaktif" class="btn btn-success btn-flat">'.$row->status.'</a>';
                           }else{
-                            echo '<a href="" class="btn btn-danger btn-flat">'.$row->status.'</a>';
+                            echo '<a href="'.base_url().'voucher/ubahstatus/'.$row->id.'/aktif" class="btn btn-danger btn-flat">'.$row->status.'</a>';
                           }
                           ?>
                         </td>
