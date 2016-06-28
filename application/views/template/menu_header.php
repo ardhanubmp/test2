@@ -300,6 +300,9 @@
             </li>
             <li><a href="<?php echo base_url(); ?>voucher"><i class="fa fa-book"></i> <span>Voucher</span></a></li>
             <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+
+            <li class="header">Transaksi</li>
+            <li id="pemesanan"><a href="<?php echo base_url(); ?>transaksi-admin"><i class="fa fa-cart"></i>Pemesanan</a></li>
           </ul>
         </section>
         <!-- /.sidebar -->
