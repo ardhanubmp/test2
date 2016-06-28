@@ -43,12 +43,20 @@ class Voucher extends CI_Controller {
 			$id=$this->uri->segment(3);
 			$status=$this->uri->segment(4);
 		}
-
-		if ($this->Voucher_model->ubahStatus($id,$status) === true) {
-			$this->index();
+		if ($this->Voucher_model->ubahStatus($id,$status)) {
+			$msg="Data berhasil diubah";
 		}else{
-			$this->index();
+			$msg="Data gagal diubah";
 		}
+
+		$data=$this->Voucher_model->getVoucher();
+
+		$this->load->view('template/header');
+		$this->load->view('template/menu_header');
+		$this->load->view('voucher/content',array('data'=>$data));
+		$this->load->view('template/footer');	
+
+		//redirect('/voucher/');
 
 	}
 
@@ -90,10 +98,11 @@ class Voucher extends CI_Controller {
 
 	public function deletevoucher($id){
 		
-		if ($this->Voucher_model->deleteVoucher($id) === true) {
+		if ($this->Voucher_model->deleteVoucher($id)) {
 			echo "done";	# code...
 		}else{
 			echo "fail";
+
 		}
 		// $this->Voucher_model->deleteVoucher($id);
 		

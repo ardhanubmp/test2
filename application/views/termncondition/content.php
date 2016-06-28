@@ -27,6 +27,12 @@
                   <h3 class="box-title">Data About</h3>
                 </div>
                 <div class="box-body">
+                  <?php if (isset($status)): ?>
+                    <div class="alert alert-warning alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <?php echo $status; ?>
+                    </div> 
+                  <?php endif ?>
                   <table class="table table-hover">
                     <tr>
                       <th>ID</th>

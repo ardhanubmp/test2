@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-//session_start();
-class Dashboard extends CI_Controller {
+
+class Login extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,24 +21,9 @@ class Dashboard extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 	}
-
 	public function index()
 	{
-		// if ($this->session->user_data('logged_in')) {
-
-		$this->load->view('template/header');
-		$this->load->view('template/menu_header');
-		$this->load->view('template/content');
-		$this->load->view('template/footer');
-		// }else{
-		// 	//jika session kosong atau belum login
-		// 	redirect('login','refresh');
-		// }
+		// $this->load->helper(array('form'));
+		$this->load->view('login/login_view');
 	}
-	function logout(){
-		$this->session->unset_userdata('logged_in');
-		session_destroy();
-		redirect('dashboard','refresh');
-	}
-
 }
