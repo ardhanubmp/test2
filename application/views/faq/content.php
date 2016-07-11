@@ -40,7 +40,7 @@
                         <td><?php echo substr($row->deskripsi, 0,100)."..."; ?></td>
                         <td><?php echo $row->gambar; ?></td>
                         <td>
-                          <a class="btn btn-flat btn-primary" href="<?php echo base_url(); ?>faq/editFaq">Ubah</a>
+                          <a class="btn btn-flat btn-primary" href="<?php echo base_url(); ?>admin/faq/editFaq">Ubah</a>
                         </td>
                       </tr>
                     <?php } ?>

@@ -18,7 +18,7 @@ class Harga_model extends CI_Model
 	}
 
 	public function updateHarga($id,$data){
-		$this->db->where('id',$id);
+		$this->db->where('id_harga',$id);
 		$this->db->update($this->table,$data);
 	}
 }

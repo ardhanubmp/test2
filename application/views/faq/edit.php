@@ -38,7 +38,7 @@
                     </div>  
                   <?php endif ?>
                   
-                  <form class="form" action="<?php echo base_url() ?>faq/editFaqProses" method="post"
+                  <form class="form" action="<?php echo base_url(); ?>admin/faq/editFaqProses" method="post"
                   enctype="multipart/form-data">
                     <?php foreach ($data as $row) { ?>
                     <div class="form-group">

@@ -12,6 +12,10 @@ class Voucher_model extends CI_Model
 		
 	}
 
+	public function cek_voucher($data){
+		$query = $this->db->get_where($this->table,$data);
+		return $query;
+	}
 	public function getVoucher(){
 		$query=$this->db->get($this->table);
 		return $query->result();

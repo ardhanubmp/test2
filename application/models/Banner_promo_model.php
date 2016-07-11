@@ -18,7 +18,7 @@ class Banner_promo_model extends CI_Model
 	}
 
 	public function editBannerPromo($id,$data){
-		$this->db->where('id',$id);
+		$this->db->where('id_banner_promo',$id);
 		$this->db->update($this->table,$data);
 	}
 }

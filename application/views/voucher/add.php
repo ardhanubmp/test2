@@ -38,7 +38,7 @@
                     </div>  
                   <?php endif ?>
                   
-                  <form class="form-horizontal" action="<?php echo base_url() ?>voucher/addvoucherproses" method="post"
+                  <form class="form-horizontal" action="<?php echo base_url(); ?>admin/voucher/addvoucherproses" method="post"
                   enctype="multipart/form-data">
                     <div class="form-group">
                       <label class="col-md-2 control-label">Kode Voucher</label>

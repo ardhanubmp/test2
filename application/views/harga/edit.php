@@ -38,7 +38,7 @@
                     </div>  
                   <?php endif ?>
                   
-                  <form class="form-horizontal" action="<?php echo base_url() ?>harga/aksi_ubah" method="post"
+                  <form class="form-horizontal" action="<?php echo base_url(); ?>admin/harga/aksi_ubah" method="post"
                   enctype="multipart/form-data">
                     <?php foreach ($data as $row) { ?>
                     <div class="form-group">
@@ -48,7 +48,7 @@
                           <span class="input-group-addon"><b>Rp</b></span>
                           <input name="harga" type="text" value="<?php echo $row->harga; ?>" name="harga" class="form-control"></input>
                         </div>
-                        <input type="hidden" name="id" value="<?php echo $row->id; ?>"></input>
+                        <input type="hidden" name="id" value="<?php echo $row->id_harga; ?>"></input>
                       </div>
                         
                     </div>

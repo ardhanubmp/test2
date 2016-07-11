@@ -18,7 +18,7 @@ class Hto_model extends CI_Model
 	}
 
 	public function editHto($id,$data){
-		$this->db->where('id',$id);
+		$this->db->where('id_how_to_order',$id);
 		$this->db->update($this->table,$data);
 	}
 }

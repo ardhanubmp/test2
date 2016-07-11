@@ -22,12 +22,12 @@ class Galeri_model extends CI_Model
 	}
 
 	public function updateGaleri($id,$data){
-		$this->db->where('id',$id);
+		$this->db->where('id_galeri',$id);
 		$this->db->update($this->table,$data);
 	}
 
 	public function deleteGaleri($id){
-		$this->db->delete($this->table,array('id'=>$id));
+		$this->db->delete($this->table,array('id_galeri'=>$id));
 	}
 }
  ?>

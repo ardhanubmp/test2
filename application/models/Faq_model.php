@@ -18,7 +18,7 @@ class Faq_model extends CI_Model
 	}
 
 	public function editFaq($id,$data){
-		$this->db->where('id',$id);
+		$this->db->where('id_faq',$id);
 		$this->db->update($this->table,$data);
 	}
 }

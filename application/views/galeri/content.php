@@ -26,7 +26,7 @@
                 <div class="box-header">
                   <i class="fa fa-comments-o"></i>
                   <h3 class="box-title">Daftar Galeri</h3>
-                  <a href="<?php echo base_url(); ?>galeri/addgaleri" class="btn btn-primary btn-flat pull-right">tambah</a>
+                  <a href="<?php echo base_url(); ?>admin/galeri/addgaleri" class="btn btn-primary btn-flat pull-right">tambah</a>
                 </div>
                 <div class="box-body">
                   <?php if (isset($status)): ?>
@@ -47,7 +47,7 @@
                                         <button class="btn btn-flat btn-success" type="button" data-toggle="modal" data-target="#editGaleri" data-gambar="<?php echo $row->gambar; ?>" data-idgambar="<?php echo $row->id; ?>" data-deskripsi="<?php echo $row->deskripsi; ?>" data-judul="<?php echo $row->judul; ?>"> 
                                             <span class="fa fa-edit" ></span>
                                         </button>
-                                        <button type="button" class="btn btn-flat btn-success" data-toggle="modal" data-target="#deleteGaleri" data-idgambar="<?php echo $row->id; ?>" data-link="<?php echo base_url(); ?>galeri/deletegaleri/<?php echo $row->id; ?>">
+                                        <button type="button" class="btn btn-flat btn-success" data-toggle="modal" data-target="#deleteGaleri" data-idgambar="<?php echo $row->id; ?>" data-link="<?php echo base_url(); ?>admin/galeri/deletegaleri/<?php echo $row->id; ?>">
                                             <span class="fa fa-trash"></span>
                                         </button>
                                     </p>
@@ -78,7 +78,7 @@
         <h4 class="modal-title" id="exampleModalLabel">New message</h4>
       </div>
       <div class="modal-body">
-        <form method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>galeri/editGaleriProses">
+        <form method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>admin/galeri/editGaleriProses">
           <div class="form-group">
             <label for="recipient-name" class="control-label">Id:</label>
             <input name="idgambar" type="text" readonly="" class="form-control" id="idgambar">

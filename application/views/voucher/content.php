@@ -25,7 +25,7 @@
                 <div class="box-header">
                   <i class="fa fa-comments-o"></i>
                   <h3 class="box-title">Data About</h3>
-                  <a class="btn btn-success btn-flat pull-right" href="<?php echo base_url(); ?>voucher/addvoucher">Tambah Voucher</a>
+                  <a class="btn btn-success btn-flat pull-right" href="<?php echo base_url(); ?>admin/voucher/addvoucher">Tambah Voucher</a>
                 </div>
                 <div class="box-body">
                   <table class="table table-hover">
@@ -43,15 +43,15 @@
                         <td>
                           <?php 
                           if ($row->status=='aktif') {
-                            echo '<a href="'.base_url().'voucher/ubahstatus/'.$row->id.'/nonaktif" class="btn btn-success btn-flat">'.$row->status.'</a>';
+                            echo '<a href="'.base_url().'admin/voucher/ubahstatus/'.$row->id.'/nonaktif" class="btn btn-success btn-flat">'.$row->status.'</a>';
                           }else{
-                            echo '<a href="'.base_url().'voucher/ubahstatus/'.$row->id.'/aktif" class="btn btn-danger btn-flat">'.$row->status.'</a>';
+                            echo '<a href="'.base_url().'admin/voucher/ubahstatus/'.$row->id.'/aktif" class="btn btn-danger btn-flat">'.$row->status.'</a>';
                           }
                           ?>
                         </td>
                         <td><?php echo $row->persentase; ?></td>
                         <td>
-                          <a class="btn btn-flat btn-warning" href="<?php echo base_url().'voucher/deletevoucher/'.$row->id; ?>"><i class="fa fa-trash"></i> Hapus</a>
+                          <a class="btn btn-flat btn-warning" href="<?php echo base_url().'admin/voucher/deletevoucher/'.$row->id; ?>"><i class="fa fa-trash"></i> Hapus</a>
                         </td>
                       </tr>
                     <?php } ?>

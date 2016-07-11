@@ -5,11 +5,9 @@
 </head>
 <body>
 <h1>tes</h1>
-
-	<?php echo validation_errors(); ?>
-	<?php echo form_open('verifylogin'); ?>
+	<form action="<?php echo base_url(); ?>auth/cek_login" method="post">
 		<label for="username">Username</label>
-		<input type="text" size="20" id="username" name="username"></input>
+		<input type="text" id="username" name="username"></input>
 		</br>
 		<label for="password">Password</label>
 		<input type="password" id="password" name="password"></input>

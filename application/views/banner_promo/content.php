@@ -39,7 +39,7 @@
                   <?php endif ?>
 
                   <?php foreach ($data as $row) {
-                    $id_banner=$row->id;
+                    $id_banner=$row->id_banner_promo;
                     $alt_image=$row->alt_image;
                    ?>
                   <div class="banner">
@@ -47,7 +47,7 @@
                   </div>
                   <?php } ?>
                   </hr>
-                  <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>banner_promo/editBannerPromoProses" enctype="multipart/form-data">
+                  <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>admin/banner_promo/editBannerPromoProses" enctype="multipart/form-data">
                     <div class="form-group">
                       <label class="col-md-2 label-control">Gambar</label>
                       <div class="col-md-10">
@@ -65,6 +65,7 @@
                     <div class="form-group">
                       <div class="col-md-10 col-md-offset-2">
                         <input type="hidden" name="id" value="<?php echo $id_banner; ?>"></input>
+                        <input type="hidden" name="gambar_temp" value="<?php echo $row->gambar; ?>"></input>
                         <input type="submit" name="simpanbanner" class="btn btn-success" value="Simpan Banner"></input>
                       </div>
                     </div>

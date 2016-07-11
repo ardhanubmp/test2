@@ -46,7 +46,7 @@
                         <td><?php echo substr($row->deskripsi, 0,100)."..."; ?></td>
                         <td><?php echo $row->gambar; ?></td>
                         <td>
-                          <a class="btn btn-flat btn-primary" href="<?php echo base_url(); ?>termncondition/editTermNCondition">Ubah</a>
+                          <a class="btn btn-flat btn-primary" href="<?php echo base_url(); ?>admin/termncondition/editTermNCondition">Ubah</a>
                         </td>
                       </tr>
                     <?php } ?>

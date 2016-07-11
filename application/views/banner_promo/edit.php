@@ -38,7 +38,7 @@
                     </div>  
                   <?php endif ?>
                   
-                  <form class="form" action="<?php echo base_url() ?>howtoorder/editHtoProses" method="post"
+                  <form class="form" action="<?php echo base_url(); ?>howtoorder/editHtoProses" method="post"
                   enctype="multipart/form-data">
                     <?php foreach ($data as $row) { ?>
                     <div class="form-group">
@@ -50,7 +50,7 @@
                       <img src="<?php echo base_url(); ?>assets/uploads/images/<?php echo $row->gambar; ?>" class="img-responsive img-thumbnail" style="width: 100px;">
                       <input type="file" name="gambar" class=""></input>
                       <input type="hidden" name="id" value="<?php echo $row->id; ?>"></input>
-                      <input type="hidden" name="gambar_temp" value="<?php echo $row->gambar; ?>"></input>
+                      <input type="text" name="gambar_temp" value="<?php echo $row->gambar; ?>"></input>
                     </div>
                     <div class="form-group">
                       <input type="submit" value="Simpan" class="btn btn-primary"></input>

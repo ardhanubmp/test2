@@ -235,7 +235,7 @@
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="<?php echo base_url().'auth/logout'; ?>" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>
@@ -288,21 +288,21 @@
                 <span class="label label-primary pull-right">4</span>
               </a>
               <ul class="treeview-menu">
-                <li id="galeri"><a href="<?php echo base_url(); ?>galeri"><i class="fa fa-circle-o"></i>Galeri</a></li>
-                <li id="about"><a href="<?php echo base_url(); ?>about"><i class="fa fa-circle-o"></i>About</a></li>
-                <li id="faq"><a href="<?php echo base_url(); ?>faq"><i class="fa fa-circle-o"></i>FAQ</a></li>
+                <li id="galeri"><a href="<?php echo base_url(); ?>admin/galeri"><i class="fa fa-circle-o"></i>Galeri</a></li>
+                <li id="about"><a href="<?php echo base_url(); ?>admin/about"><i class="fa fa-circle-o"></i>About</a></li>
+                <li id="faq"><a href="<?php echo base_url(); ?>admin/faq"><i class="fa fa-circle-o"></i>FAQ</a></li>
                 <li id="testimoni"><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Testimoni</a></li>
-                <li id="termncondition"><a href="<?php echo base_url(); ?>termncondition"><i class="fa fa-circle-o"></i>Term N Condition</a></li>
-                <li id="termncondition"><a href="<?php echo base_url(); ?>howtoorder"><i class="fa fa-circle-o"></i>How To Order</a></li>
-                <li id="bannerpromo"><a href="<?php echo base_url(); ?>banner_promo"><i class="fa fa-circle-o"></i>Banner Promo</a></li>
-                <li id="harga"><a href="<?php echo base_url(); ?>harga"><i class="fa fa-circle-o"></i>Harga</a></li>
+                <li id="termncondition"><a href="<?php echo base_url(); ?>admin/termncondition"><i class="fa fa-circle-o"></i>Term N Condition</a></li>
+                <li id="termncondition"><a href="<?php echo base_url(); ?>admin/howtoorder"><i class="fa fa-circle-o"></i>How To Order</a></li>
+                <li id="bannerpromo"><a href="<?php echo base_url(); ?>admin/banner_promo"><i class="fa fa-circle-o"></i>Banner Promo</a></li>
+                <li id="harga"><a href="<?php echo base_url(); ?>admin/harga"><i class="fa fa-circle-o"></i>Harga</a></li>
               </ul>
             </li>
-            <li><a href="<?php echo base_url(); ?>voucher"><i class="fa fa-book"></i> <span>Voucher</span></a></li>
+            <li><a href="<?php echo base_url(); ?>admin/voucher"><i class="fa fa-book"></i> <span>Voucher</span></a></li>
             <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
 
             <li class="header">Transaksi</li>
-            <li id="pemesanan"><a href="<?php echo base_url(); ?>transaksi-admin"><i class="fa fa-cart"></i>Pemesanan</a></li>
+            <li id="pemesanan"><a href="<?php echo base_url(); ?>admin/transaksi-admin"><i class="fa fa-cart"></i>Pemesanan</a></li>
           </ul>
         </section>
         <!-- /.sidebar -->

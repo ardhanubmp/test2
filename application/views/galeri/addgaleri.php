@@ -25,7 +25,7 @@
                 <div class="box-header">
                   <i class="fa fa-comments-o"></i>
                   <h3 class="box-title">Daftar Galeri</h3>
-                  <a href="<?php echo base_url(); ?>galeri" class="btn btn-success btn-flat pull-right">kembali</a>
+                  <a href="<?php echo base_url(); ?>admin/galeri" class="btn btn-success btn-flat pull-right">kembali</a>
                 </div>
                 <div class="box-body">
                   <?php if (isset($status)): ?>
@@ -36,7 +36,7 @@
                   <?php endif ?>                
                   <div class="row">
                     <div class="col-md-12">
-                      <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>galeri/addgaleriproses" enctype="multipart/form-data">
+                      <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>admin/galeri/addgaleriproses" enctype="multipart/form-data">
                         <div class="form-group">
                           <label for="inputEmail3" class="col-sm-2 control-label">Judul</label>
                           <div class="col-sm-10">

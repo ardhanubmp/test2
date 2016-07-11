@@ -18,7 +18,7 @@ class About_model extends CI_Model
 	}
 
 	public function updateAbout($id,$data){
-		$this->db->where('id',$id);
+		$this->db->where('id_about',$id);
 		$this->db->update($this->table,$data);
 	}
 }

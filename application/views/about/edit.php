@@ -38,7 +38,7 @@
                     </div>  
                   <?php endif ?>
                   
-                  <form class="form" action="<?php echo base_url() ?>about/aksi_ubah" method="post"
+                  <form class="form" action="<?php echo base_url(); ?>admin/about/aksi_ubah" method="post"
                   enctype="multipart/form-data">
                     <?php foreach ($data as $row) { ?>
                     <div class="form-group">
@@ -49,7 +49,7 @@
                       <label class="control-label">Gambar</label>
                       <img src="<?php echo base_url(); ?>assets/uploads/images/<?php echo $row->gambar; ?>" class="img-responsive img-thumbnail" style="width: 100px;">
                       <input type="file" name="gambar" class=""></input>
-                      <input type="hidden" name="id" value="<?php echo $row->id; ?>"></input>
+                      <input type="hidden" name="id" value="<?php echo $row->id_about; ?>"></input>
                       <input type="hidden" name="gambar_temp" value="<?php echo $row->gambar; ?>"></input>
                     </div>
                     <div class="form-group">
