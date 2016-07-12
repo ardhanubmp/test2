@@ -8,12 +8,12 @@
                 <div class="panel accordion-group">
 
                   <div class="accordion-heading">
-                    <a class=" accordion-toggle" href="dashboard.html">
+                    <a class=" accordion-toggle" href="<?php echo base_url(); ?>member/dashboard">
                       <i class="fa fa-dashboard"></i>Dashboard
                     </a>
                   </div>
                   <div class="accordion-heading bg-primary">
-                    <a class=" accordion-toggle" href="merchandise.html">
+                    <a class=" accordion-toggle" href="<?php echo base_url(); ?>member/merchandise">
                       <i class="fa fa-cube"></i>Buat Merchandise
                     </a>
                   </div>
@@ -26,28 +26,28 @@
                     <div class="accordion-inner">
                       <ul class="list-unstyled">
                         <li>
-                          <a class="" href="history.html">History</a>
-                          <a class="" href="keranjang.html">Keranjang</a>
-                          <a class="" href="konfirmasi.html">Konfirmasi</a>
+                          <a class="" href="<?php echo base_url(); ?>member/history">History</a>
+                          <a class="" href="<?php echo base_url(); ?>member/keranjang">Keranjang</a>
+                          <a class="" href="<?php echo base_url(); ?>member/konfirmasi">Konfirmasi</a>
                         </li>
                       </ul>
                     </div>
                   </div>
 
                   <div class="accordion-heading">
-                    <a class=" accordion-toggle" href="pengaturan.html">
+                    <a class=" accordion-toggle" href="<?php echo base_url(); ?>member/pengaturan">
                       <i class="fa fa-gear"></i>Pengaturan
                     </a>
                   </div>
 
                   <div class="accordion-heading">
-                    <a class=" accordion-toggle" href="testimoni.html">
+                    <a class=" accordion-toggle" href="<?php echo base_url(); ?>member/testimoni">
                       <i class="fa fa-lightbulb-o"></i>Testimoni
                     </a>
                   </div>
 
                   <div class="accordion-heading">
-                    <a class=" accordion-toggle" href="ubah-password.html">
+                    <a class=" accordion-toggle" href="<?php echo base_url(); ?>member/ubah_password">
                       <i class="fa fa-lock"></i>Ubah Password
                     </a>
                   </div>

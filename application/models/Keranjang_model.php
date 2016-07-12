@@ -20,8 +20,15 @@ class Keranjang_model extends CI_Model
 		$query = $this->db->get($this->table);
 		return $query->result();
 	}
+	public function getKeranjangByIdUser($id_user){
+		$this->db->where('id_user',$id_user);
+		$query = $this->db->get($this->table);
+		return $query->result();
+	}
 	public function insertKeranjang($data){
 		$this->db->insert($this->table,$data);
+		$insert_id = $this->db->insert_id();
+		return $insert_id;
 	}
 	public function updateKeranjang($id_keranjang,$data){
 		$this->db->where('id_keranjang',$id_keranjang);
@@ -29,6 +36,9 @@ class Keranjang_model extends CI_Model
 	}
 	public function deleteKeranjang($id_keranjang){
 		$this->db->delete($this->table,array('id_keranjang'=>$id_keranjang));
+	}
+	public function deleteKeranjangByIdUser($id_user){
+		$this->db->delete($this->table,array('id_user'=>$id_user));
 	}
 }
  ?>

@@ -44,10 +44,10 @@
                                 <div class="overlay">
                                     <h2>Perbesar</h2>
                                     <p class="icon-links">
-                                        <button class="btn btn-flat btn-success" type="button" data-toggle="modal" data-target="#editGaleri" data-gambar="<?php echo $row->gambar; ?>" data-idgambar="<?php echo $row->id; ?>" data-deskripsi="<?php echo $row->deskripsi; ?>" data-judul="<?php echo $row->judul; ?>"> 
+                                        <button class="btn btn-flat btn-success" type="button" data-toggle="modal" data-target="#editGaleri" data-gambar="<?php echo $row->gambar; ?>" data-idgambar="<?php echo $row->id_galeri; ?>" data-deskripsi="<?php echo $row->deskripsi; ?>" data-judul="<?php echo $row->judul; ?>"> 
                                             <span class="fa fa-edit" ></span>
                                         </button>
-                                        <button type="button" class="btn btn-flat btn-success" data-toggle="modal" data-target="#deleteGaleri" data-idgambar="<?php echo $row->id; ?>" data-link="<?php echo base_url(); ?>admin/galeri/deletegaleri/<?php echo $row->id; ?>">
+                                        <button type="button" class="btn btn-flat btn-success" data-toggle="modal" data-target="#deleteGaleri" data-idgambar="<?php echo $row->id_galeri; ?>" data-link="<?php echo base_url(); ?>admin/galeri/deletegaleri/<?php echo $row->id_galeri; ?>">
                                             <span class="fa fa-trash"></span>
                                         </button>
                                     </p>
@@ -114,7 +114,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Konfirmasi Hapus</h4>
       </div>
       <div class="modal-body">
         Apa Anda yakin akan menghapus gambar ini ?

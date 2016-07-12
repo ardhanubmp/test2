@@ -20,12 +20,12 @@ class Transaksi_model extends CI_Model
 		$query = $this->db->get($this->table);
 		return $query->result();
 	}
-	public function getTransaksi_by_id($id_transaksi){
+	public function getTransaksiById($id_transaksi){
 		$this->db->where('id_transaksi',$id_transaksi);
 		$query = $this->db->get($this->table);
 		return $query->result();
 	}
-	public function getTransaksi_all(){
+	public function getTransaksiAll(){
 		$this->db->select('*');
 		$this->db->from($this->table);
 		$this->db->join('voucher','voucher.id_voucher = transaksi.id_voucher');
@@ -33,7 +33,7 @@ class Transaksi_model extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
-	public function getTransaksi_no_v(){
+	public function getTransaksiNoVou(){
 		$this->db->select('*');
 		$this->db->from($this->table);
 		$this->db->join('kota','kota.id_kota = transaksi.id_kota');
@@ -42,6 +42,8 @@ class Transaksi_model extends CI_Model
 	}
 	public function insertTransaksi($data){
 		$this->db->insert($this->table,$data);
+		$insert_id = $this->db->insert_id();
+		return $insert_id;
 	}
 	public function updateTransaksi($id_transaksi,$data){
 		$this->db->where('id_transaksi',$id_transaksi);

@@ -51,3 +51,8 @@
 .nav-dashboard{
 	margin-bottom: 10px;
 }
+.thumb_keranjang{
+	max-height: 100px;
+	max-width: 100px;
+	overflow: hidden;
+}

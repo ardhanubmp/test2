@@ -23,63 +23,8 @@
       <div class="row">
         <!-- SIDE NAV -->
         <!--===============================================================-->
-        <div class="col-md-3">
-          <div class="row">
-            <div class="col-md-12">
-
-              <div class="panel-group accordion nav-side" id="accor">
-                <div class="panel accordion-group">
-
-                  <div class="accordion-heading">
-                    <a class=" accordion-toggle" href="dashboard.html">
-                      <i class="fa fa-dashboard"></i>Dashboard
-                    </a>
-                  </div>
-                  <div class="accordion-heading bg-primary">
-                    <a class=" accordion-toggle" href="merchandise.html">
-                      <i class="fa fa-cube"></i>Buat Merchandise
-                    </a>
-                  </div>
-                  <div class="accordion-heading ">
-                    <a class=" accordion-toggle icon-toggle" data-toggle="collapse" data-parent="#accor" href="#accor-2">
-                      <i class="fa fa-shopping-cart"></i>Transaksi
-                    </a>
-                  </div>
-                  <div id="accor-2" class="accordion-body collapse ">
-                    <div class="accordion-inner">
-                      <ul class="list-unstyled">
-                        <li>
-                          <a class="" href="history.html">History</a>
-                          <a class="" href="keranjang.html">Keranjang</a>
-                          <a class="" href="konfirmasi.html">Konfirmasi</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div class="accordion-heading">
-                    <a class=" accordion-toggle" href="pengaturan.html">
-                      <i class="fa fa-gear"></i>Pengaturan
-                    </a>
-                  </div>
-
-                  <div class="accordion-heading">
-                    <a class=" accordion-toggle" href="testimoni.html">
-                      <i class="fa fa-lightbulb-o"></i>Testimoni
-                    </a>
-                  </div>
-
-                  <div class="accordion-heading">
-                    <a class=" accordion-toggle" href="ubah-password.html">
-                      <i class="fa fa-lock"></i>Ubah Password
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
+        <?php $this->load->view('front/template/menu_member'); ?>
+        <!-- END SIDE NAV -->
 
         <!-- CONTENT COLUMN -->
         <!--===============================================================-->
@@ -98,7 +43,11 @@
                   </div>
                   <div class="panel-body">
                     <div class="col-md-6">
-                      <img src="https://placehold.it/350x350" class="img-responsive img-thumbnail">
+                      <?php if (empty($user->gambar)): ?>
+                        <img src="https://placehold.it/350x350" class="img-responsive img-thumbnail">
+                      <?php else: ?>
+                        <img src="<?php echo base_url(); ?>assets/uploads/users/<?php echo $user->gambar; ?>" class="img-responsive img-thumbnail">
+                      <?php endif ?>
                     </div>
                     <div class="col-md-6">
                       <h3 class="text-theme title-sm hr-before"><i class="fa fa-user margin-r-10"></i>Username</h3>

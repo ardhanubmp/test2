@@ -20,7 +20,7 @@ class Transaksi_Detail_model extends CI_Model
 		$query = $this->db->get($this->table);
 		return $query->result();
 	}
-	public function getTransaksi_Detail_by_t($id_transaksi){
+	public function getTransaksi_DetailByTran($id_transaksi){
 		$this->db->select('*');
 		$this->db->from($this->table);
 		$query = $this->db->get();
