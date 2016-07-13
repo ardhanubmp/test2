@@ -20,6 +20,12 @@ class Kota_model extends CI_Model
 		$query = $this->db->get($this->table);
 		return $query->result();
 	}
+	public function getKotaById($id_kota){
+		$this->db->where('id_kota',$id_kota);
+		$query = $this->db->get($this->table);
+		return $query->result();
+	}
+	
 	public function insertKota($data){
 		$this->db->insert($this->table,$data);
 	}

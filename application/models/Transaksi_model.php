@@ -25,17 +25,24 @@ class Transaksi_model extends CI_Model
 		$query = $this->db->get($this->table);
 		return $query->result();
 	}
-	public function getTransaksiAll(){
+	public function getTransaksiByIdUser($id_user){
+		$this->db->where('id_user',$id_user);
+		$query = $this->db->get($this->table);
+		return $query->result();
+	}
+	public function getTransaksiAll($id_transaksi){
 		$this->db->select('*');
 		$this->db->from($this->table);
+		$this->db->where('id_transaksi',$id_transaksi);
 		$this->db->join('voucher','voucher.id_voucher = transaksi.id_voucher');
 		$this->db->join('kota','kota.id_kota = transaksi.id_kota');
 		$query = $this->db->get();
 		return $query->result();
 	}
-	public function getTransaksiNoVou(){
+	public function getTransaksiNoVou($id_transaksi){
 		$this->db->select('*');
 		$this->db->from($this->table);
+		$this->db->where('id_transaksi',$id_transaksi);
 		$this->db->join('kota','kota.id_kota = transaksi.id_kota');
 		$query = $this->db->get();
 		return $query->result();		

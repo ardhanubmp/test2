@@ -23,70 +23,37 @@
       <div class="row">
         <!-- SIDE NAV -->
         <!--===============================================================-->
-        <div class="col-md-3">
-          <div class="row">
-            <div class="col-md-12">
-
-              <div class="panel-group accordion nav-side" id="accor">
-                <div class="panel accordion-group">
-
-                  <div class="accordion-heading">
-                    <a class=" accordion-toggle" href="dashboard.html">
-                      <i class="fa fa-dashboard"></i>Dashboard
-                    </a>
-                  </div>
-                  <div class="accordion-heading bg-primary">
-                    <a class=" accordion-toggle" href="merchandise.html">
-                      <i class="fa fa-cube"></i>Buat Merchandise
-                    </a>
-                  </div>
-                  <div class="accordion-heading ">
-                    <a class=" accordion-toggle icon-toggle" data-toggle="collapse" data-parent="#accor" href="#accor-2">
-                      <i class="fa fa-shopping-cart"></i>Transaksi
-                    </a>
-                  </div>
-                  <div id="accor-2" class="accordion-body collapse ">
-                    <div class="accordion-inner">
-                      <ul class="list-unstyled">
-                        <li>
-                          <a class="" href="history.html">History</a>
-                          <a class="" href="keranjang.html">Keranjang</a>
-                          <a class="" href="konfirmasi.html">Konfirmasi</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div class="accordion-heading">
-                    <a class=" accordion-toggle" href="pengaturan.html">
-                      <i class="fa fa-gear"></i>Pengaturan
-                    </a>
-                  </div>
-
-                  <div class="accordion-heading">
-                    <a class=" accordion-toggle" href="testimoni.html">
-                      <i class="fa fa-lightbulb-o"></i>Testimoni
-                    </a>
-                  </div>
-
-                  <div class="accordion-heading">
-                    <a class=" accordion-toggle" href="ubah-password.html">
-                      <i class="fa fa-lock"></i>Ubah Password
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
+        <?php $this->load->view('front/template/menu_member'); ?>
+        <!-- END SIDE NAV -->
 
         <!-- CONTENT COLUMN -->
         <!--===============================================================-->
+          
         <div class="col-md-9">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="title-v2">Ringkasan Pemesanan</h3>
+              <h3 class="title-v2">Isi Keranjang dari pemesanan anda</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+
+              <?php if (!empty($this->session->flashdata('msg_success'))): ?>
+              <!-- alert jika sukses simpan -->
+              <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <?php echo $this->session->flashdata('msg_success'); ?>
+              </div>
+              <?php endif ?>
+
+              <?php if (!empty($this->session->flashdata('msg_error_upload'))): ?>
+              <!-- alert jika ada error ketika upload -->
+              <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <?php echo $this->session->flashdata('msg_error_upload'); ?>
+              </div>
+              <?php endif ?>
+
             </div>
           </div>
           <div class="row">
@@ -94,18 +61,30 @@
               <p class="text-theme">
                 Berikut adalah Ringkasan Pemesanan anda
               </p>
-              <p class="text-theme">
-                <h3 class="text-theme title-xs hr-before">Kode Pemesanan</h3>
-                <p class="text-theme">#332</p>
-                <h3 class="text-theme title-xs hr-before">Alamat Pengiriman</h3>
-                <p class="text-theme">Nitikan Uh 7 / 317 yogyakarta</p>
-                <h3 class="text-theme title-xs hr-before">Kota Pengiriman</h3>
-                <p class="text-theme">Yogyakarta</p>
-                <h3 class="text-theme title-xs hr-before">Total bayar</h3>
-                <p class="text-theme"><a href="#grand_total">Rp 115000</a></p>
-                <h3 class="text-theme title-xs hr-before">Status</h3>
-                <span class="label label-warning">Ditunda</span>
-              </p>
+              <?php if (!empty($arr_transaksi)): ?>
+                <?php foreach ($arr_transaksi as $transaksi): ?>
+                  <p class="text-theme">
+                    <h3 class="text-theme title-xs hr-before">Kode Pemesanan</h3>
+                    <p class="text-theme">#<?php echo $transaksi->id_transaksi; ?></p>
+                    <h3 class="text-theme title-xs hr-before">Alamat Pengiriman</h3>
+                    <p class="text-theme"><?php echo $transaksi->alamat_kirim; ?></p>
+                    <h3 class="text-theme title-xs hr-before">Kota Pengiriman</h3>
+                    <p class="text-theme"><?php echo $transaksi->nama_kota." ( Rp ".$transaksi->tarif.",- ) "; ?></p>
+                    <h3 class="text-theme title-xs hr-before">Total bayar</h3>
+                    <p class="text-theme"><a href="#grand_total">Rp <?php echo $total['grand_total']; ?></a></p>
+                    <h3 class="text-theme title-xs hr-before">Tranfer ke</h3>
+                    <p class="text-theme">
+                      <strong style="text-transform: uppercase;"><?php echo $transaksi->tranfer_ke; ?></strong>
+                    </p>
+                    <h3 class="text-theme title-xs hr-before">Status</h3>
+                    <p class="tex-theme"><b class="label label-warning"><?php echo $transaksi->status; ?></b></p>
+                  </p>
+                  <?php 
+                    $voucher = $transaksi->id_voucher; 
+                    $ongkir = $transaksi->tarif; 
+                  ?>
+                <?php endforeach ?>
+              <?php endif ?>
             </div>
             <div class="col-md-6">
               <div class="panel panel-success">
@@ -123,71 +102,141 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
-              <h3 class="title-sm text-theme hr-before">Daftar Merchandise</h3>
-              <table class="table table-bordered">
-                  <thead>
-                      <tr>
-                          <th>#</th>
-                          <th>Ucapan atas</th>
-                          <th>Ucapan bawah</th>
-                          <th>Foto</th>
-                          <th>Total</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>1</td>
-                          <td>Selamat menikah</td>
-                          <td>Samawa</td>
-                          <td>
-                            <img src="http://placehold.it/100x100" class="img-responsive img-thumbnail">
-                          </td>
-                          <td class="text-right"><h3 class="text-theme title-md"><strong>Rp 60000</strong></h3></td>
-                      </tr>
-                      <tr>
-                          <td>1</td>
-                          <td>Selamat menikah</td>
-                          <td>Samawa</td>
-                          <td>
-                            <img src="http://placehold.it/100x100" class="img-responsive img-thumbnail">
-                          </td>
-                          <td class="text-right"><h3 class="text-theme title-md"><strong>Rp 60000</strong></h3></td>
-                      </tr>
-                      <tr id="grand_total">
-                        <td colspan="3"></td>
-                        <td>Total</td>
-                        <td class="text-right"><h3 class="text-theme title-md"><strong>Rp 120000</strong></h3></td>
-                      </tr>
-                      <tr>
-                        <td colspan="3"></td>
-                        <td>Pot Voucher</td>
-                        <td class="text-right"><h3 class="text-theme title-md"><strong>(-) Rp 20000</strong></h3></td>
-                      </tr>
-                      <tr>
-                        <td colspan="3"></td>
-                        <td class="btn-sea">Sub Total</td>
-                        <td class="btn-sea text-right"><h3 class=" text-theme title-md"><strong>Rp 100000</strong></h3></td>
-                      </tr>
-                      <tr>
-                        <td colspan="3"></td>
-                        <td>Ongkir</td>
-                        <td class="text-right"><h3 class="text-theme title-md"><strong>Rp 15000</strong></h3></td>
-                      </tr>
-                      <tr>
-                        <td colspan="3"></td>
-                        <td class="btn-green">Total Bayar</td>
-                        <td class="btn-green text-right" ><h3 class="text-theme title-md"><strong>Rp 115000</strong></h3></td>
-                      </tr>
-                  </tbody>
-              </table>
+            <?php if (!empty($arr_transaksi_detail)): ?>
+                <div class="col-md-12">
+                  <h3 class="title-sm text-theme hr-before">Daftar Merchandise</h3>
+                  <table class="table table-bordered">
+                      <thead>
+                          <tr>
+                              <th>#</th>
+                              <th>Ucapan atas</th>
+                              <th>Ucapan bawah</th>
+                              <th>Foto</th>
+                              <th>Total</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <?php $no=1; ?>
+                        <?php foreach ($arr_transaksi_detail as $transaksi_detail): ?>
+                          <tr>
+                              <td><?php echo $no; ?></td>
+                              <td><?php echo $transaksi_detail->ucapan_atas; ?></td>
+                              <td><?php echo $transaksi_detail->ucapan_bawah; ?></td>
+                              <td>
+                                <a href="<?php echo base_url(); ?>assets/uploads/orders/<?php echo $transaksi_detail->gambar; ?>" target="_blank">
+                                  <img src="<?php echo base_url(); ?>assets/uploads/orders/<?php echo $transaksi_detail->gambar; ?>" class="img-responsive img-thumbnail thumb_keranjang">
+                                </a>
+                              </td>
+                              <td class="text-right"><h3 class="text-theme title-md"><strong>Rp <?php echo $transaksi_detail->sub_total; ?></strong></h3></td>
+                          </tr>
+                        <?php endforeach ?>
+
+                          <tr id="grand_total">
+                            <td colspan="3"></td>
+                            <td>Total</td>
+                            <td class="text-right"><h3 class="text-theme title-md"><strong>Rp <?php echo $total['sub_total']; ?></strong></h3></td>
+                          </tr>
+                          <tr>
+                            <td colspan="3"></td>
+                            <td>Pot Voucher</td>
+                            <td class="text-right">
+                              <h3 class="text-theme title-md">
+                                <?php if (is_null($voucher)): ?>
+                                  <strong>(-)</strong>
+                                <?php else: ?>
+                                  <strong>(-) Rp <?php echo $total['potongan']; ?></strong>
+                                <?php endif ?>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="3"></td>
+                            <td class="btn-sea">Sub Total</td>
+                            <td class="btn-sea text-right"><h3 class=" text-theme title-md">
+                              <?php if (is_null($voucher)): ?>
+                                <strong>Rp <?php echo $total['sub_total']; ?></strong></h3>
+                              <?php else: ?>
+                                <strong>Rp <?php echo $total['sub_total_after']; ?></strong></h3>
+                              <?php endif ?>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="3"></td>
+                            <td>Ongkir</td>
+                            <td class="text-right"><h3 class="text-theme title-md"><strong>(+) Rp <?php echo $ongkir; ?></strong></h3></td>
+                          </tr>
+                          <tr>
+                            <td colspan="3"></td>
+                            <td class="btn-green">Total Bayar</td>
+                            <td class="btn-green text-right" ><h3 class="text-theme title-md">
+                                <strong>Rp <?php echo $total['grand_total'] ?></strong>
+                            </h3></td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+            <?php endif ?>
+                
+          </div>
+          <?php if (!empty($arr_keranjang)): ?>
+          <div class="row">
+            <div class="col-md-6 col-md-offset-6 col-sm-12">
+            <?php echo form_open('member/keranjang/proses_pesan',array('class'=>'form-horizontal')); ?>
+              <!-- <form method="post" action="" class="form-horizontal"> -->
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="inputEmail">Voucher</label>
+                  <div class="col-sm-9">
+                    <input name="kode_voucher" class="form-control " id="inputEmail2" placeholder="Kode Voucher Jika ada" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="inputEmail">Kota</label>
+                  <div class="col-sm-9">
+                    <!-- <input name="nama_kota" class="form-control " id="inputEmail2" placeholder="Kode Voucher Jika ada" type="text">
+                    <input name="id_kota" class="form-control " id="inputEmail2" placeholder="Kode Voucher Jika ada" type="hidden"> -->
+                    <select name="id_kota" class="form-control" style="width: 100%;">
+                      <?php foreach ($arr_kota as $kota): ?>
+                      <option value="<?php echo $kota->id_kota ?>"><?php echo $kota->nama_kota ?></option>
+                      <?php endforeach ?>
+                    </select>
+                  </div>
+                 
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="inputEmail">Alamat Pengiriman</label>
+                  <div class="col-sm-9">
+                    <input name="pil_alamat" type="radio" value="alamat_lama" id="alamat_lama" onclick="pilih_alamat()">Alamat Anda</input>
+                    <input name="pil_alamat" type="radio" value="alamat_baru" id="alamat_baru1" onclick="pilih_alamat()">Alamat baru</input>
+                    <textarea name="alamat" class="form-control" id="input_alamat"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="inputEmail">Tranfer ke</label>
+                  <div class="col-sm-9">
+                    <select name="tranfer_ke" class="form-control ">
+                      <option value="bni">BNI</option>
+                      <option value="mandiri">Mandiri</option>
+                    </select>  
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10 col-sm-offset-2">
+                    <input name="proses_pesan" class="form-control btn-red" id="inputEmail2" type="submit" value="Proses Pesan">
+                  </div>
+                </div>
+              <!-- <a href="proses-pesan.html" class="btn btn-red pull-right"><i class="fa fa-pencil-square-o"></i>Proses Pesan</a>               -->
+              </form>
+            </div>
+            <div class="col-md-4 col-md-offset-4">
             </div>
           </div>
+          <?php endif ?>
           <hr class="hr-divider-ghost">
-
-
         </div>
+
+
       </div>
     </div>
 <!-- END SECTION KONTEN -->
+
  

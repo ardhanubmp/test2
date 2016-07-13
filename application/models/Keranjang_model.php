@@ -25,6 +25,11 @@ class Keranjang_model extends CI_Model
 		$query = $this->db->get($this->table);
 		return $query->result();
 	}
+	public function getKeranjangById($id_keranjang){
+		$this->db->where('id_keranjang',$id_keranjang);
+		$query = $this->db->get($this->table);
+		return $query->result();
+	}
 	public function insertKeranjang($data){
 		$this->db->insert($this->table,$data);
 		$insert_id = $this->db->insert_id();

@@ -47,7 +47,7 @@ class Merchandise extends MY_Controller {
 		
 		$lokasi_upload=$config['upload_path'];
 
-		// konfigurasi validasi form
+		// konfigurasi validasi gambar
 		if (empty($_FILES['gambar']['name']))
 		{
 		    $this->form_validation->set_rules('gambar', 'Foto', 'required', array('required' => '%s Perlu diisi'));

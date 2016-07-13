@@ -24,8 +24,7 @@
   <!-- Theme -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/front/assets/css/carousel-animate.css">
   <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/front/assets/css/theme.css" id="color-style"> -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/front/assets/css/theme-purple-2.css" id="color-style">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/front/assets/css/custom.css" id="color-style">
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,6 +40,9 @@
   }
    ?>
   <!-- end custom stylesheet -->
+
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/front/assets/css/theme-purple-2.css" id="color-style">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/front/assets/css/custom.css" id="color-style">
 </head>
 
 <body class="body-nav-fixed-menu-top body-boxed">

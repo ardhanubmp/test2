@@ -81,14 +81,19 @@ class Pengaturan extends MY_Controller {
 			foreach ($arr_user as $user) {
 				$gambar=$user->gambar;
 			}
+			// exception jika gambarnya kosong
 			if ($gambar=="") {
+				// jika kosong maka diupload tanpa hapus gambar sebelumnya
 				$this->upload->do_upload('gambar');
 				$this->session->set_flashdata('msg_error_upload',$this->upload->display_errors());
 			}else{
+				// jika telah terisi ditentukan apakah diupdate apa tidak, 
 				if ($this->upload->do_upload('gambar')) {
+					// jika berhasil upload maka gmbar lama dihapus
 	                unlink($lokasi_upload.$this->input->post('gambar_temp'));
 					$gambar=$this->upload->data('file_name');
 				}else{
+					// jika tidak diupload maka gambar masih tetap
 					$gambar=$this->input->post('gambar_temp');
 				}
 				$this->session->set_flashdata('msg_error_upload',$this->upload->display_errors());

@@ -85,7 +85,7 @@
                             <button type="button" class="btn btn-rounded btn-red" data-toggle="modal" data-target="#deleteKeranjang" data-link="<?php echo base_url(); ?>member/keranjang/hapus/<?php echo $keranjang->id_keranjang; ?>">
                               <i class="fa fa-trash "></i>Hapus
                             </button>
-                            <a href="detail-pesan-keranjang.html" class="btn btn-rounded btn-green" title="Hapus"><i class="fa fa-eye"></i>Lihat</a>
+                            <a href="<?php echo base_url('member/keranjang/detail/'.$keranjang->id_keranjang); ?>" class="btn btn-rounded btn-green" title="Hapus"><i class="fa fa-eye"></i>Lihat</a>
                           </td>
                       </tr>
                     <?php endforeach ?>
