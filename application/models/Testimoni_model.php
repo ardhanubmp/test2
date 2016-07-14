@@ -20,6 +20,11 @@ class Testimoni_model extends CI_Model
 		$query = $this->db->get($this->table);
 		return $query->result();
 	}
+	public function getTestimoniById($id_user){
+		$query = $this->db->get($this->table);
+		$this->db->where('id_user',$id_user);
+		return $query->result();
+	}
 	public function insertTestimoni($data){
 		$this->db->insert($this->table,$data);
 	}

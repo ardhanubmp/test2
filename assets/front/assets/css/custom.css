@@ -108,28 +108,28 @@ left: 5%;
 z-index: 500;
 height:16%;
 }
-.pop_ornamen4{
+.pop_ornamen2{
 top: 28%;
 width: 30%;
 left: 65%;
 z-index: 500;
 height:16%;
 }
-.pop_ornamen2{
+.pop_ornamen3{
 top: 40%;
 width: 30%;
 left: 5%;
 z-index: 500;
 height:16%;
 }
-.pop_ornamen5{
+.pop_ornamen4{
 top: 40%;
 width: 30%;
 left: 65%;
 z-index: 500;
 height:16%;
 }
-.pop_ornamen3{
+.pop_ornamen5{
 top: 53%;
 width: 30%;
 left: 5%;
@@ -148,4 +148,58 @@ top: 64%;
 width: 90%;
 left: 5%;
 z-index: 499;
+}
+
+/*alternative interactive*/
+.ornamen_alt_konten{
+	height: 211px;
+	border: 1px solid #dbdbdb;
+}
+.ornamen_alt_konten:hover{
+	border-color: purple;
+}
+
+.ornamen_alt_atasbawah{
+	height: 115px;
+	border: 1px solid #dbdbdb;
+}
+.ornamen_alt_atasbawah:hover{
+	border-color: purple;
+}
+.img_alt_merch{
+	max-height: 100%;
+}
+.owl-carousel .item{
+	margin: 0px 5px;
+}
+
+/*custom modal transparan*/
+.modal-content-transparant{
+position: relative;
+background-color: rgba(255, 255, 255, 0);
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+/*border: 1px solid #999;*/
+/*border: 1px solid rgba(0,0,0,.2);*/
+/*border-radius: 6px;*/
+outline: 0;
+-webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+/*box-shadow: 0 3px 9px rgba(0,0,0,.5);*/
+}
+.modal-header-transparant{
+
+}
+.fa-box-custom{
+color: #fff !important;
+border: solid 1px #1abc9c !important;
+}
+.modal-dark{
+	background: rgba(21, 21, 21, 0.51) none repeat scroll 0% 0%;
+	z-index: 1600;
+}
+.close-device{
+	margin: 0px;
+font-size: 2.5em;
+margin: 3px 11px;
+color: rgb(254, 254, 254);
 }

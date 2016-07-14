@@ -63,7 +63,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <a href="keranjang.html" class="btn btn-red margin-b-10"><i class="fa fa-arrow-left"></i>kembali</a>
+              <a href="<?php echo  base_url('member/keranjang'); ?>" class="btn btn-red margin-b-10"><i class="fa fa-arrow-left"></i>kembali</a>
               <div class="panel panel-primary">
                 <div class="panel-heading">
                   <h3 class="panel-title">Informasi Merchandise</h3>
@@ -77,31 +77,31 @@
 <div class="popuptube pull-left" id="content">
   <div class="base">
     <div class="pop_atas">
-      <img src="<?php echo base_url(); ?>assets/ornamen/atas/atas.jpg" draggable="false" class="img_pop">
+      <img src="<?php echo base_url('assets/ornamen/atas/'.$keranjang->ornamen_atas); ?>" draggable="false" class="img_pop img-responsive">
     </div>
     <div class="pop_ornamen1">
-      <img src="<?php echo base_url(); ?>assets/ornamen/konten/1.jpg" class="img_pop">
-    </div>
-    <div class="pop_ornamen4">
-      <img src="<?php echo base_url(); ?>assets/ornamen/konten/4.jpg" class="img_pop">
+      <img src="<?php echo base_url('assets/ornamen/konten/'.$keranjang->ornamen1); ?>" class="img_pop pull-right">
     </div>
     <div class="pop_ornamen2">
-      <img src="<?php echo base_url(); ?>assets/ornamen/konten/2.jpg" class="img_pop">
-    </div>
-    <div class="pop_ornamen5">
-      <img src="<?php echo base_url(); ?>assets/ornamen/konten/5.jpg" class="img_pop">
+      <img src="<?php echo base_url('assets/ornamen/konten/'.$keranjang->ornamen2); ?>" class="img_pop pull-left">
     </div>
     <div class="pop_ornamen3">
-      <img src="<?php echo base_url(); ?>assets/ornamen/konten/3.jpg" class="img_pop">
+      <img src="<?php echo base_url('assets/ornamen/konten/'.$keranjang->ornamen3); ?>" class="img_pop pull-right">
+    </div>
+    <div class="pop_ornamen4">
+      <img src="<?php echo base_url('assets/ornamen/konten/'.$keranjang->ornamen4); ?>" class="img_pop pull-left">
+    </div>
+    <div class="pop_ornamen5">
+      <img src="<?php echo base_url('assets/ornamen/konten/'.$keranjang->ornamen5); ?>" class="img_pop pull-right">
     </div>
     <div class="pop_ornamen6">
-      <img src="<?php echo base_url(); ?>assets/ornamen/konten/6.jpg" class="img_pop">      
+      <img src="<?php echo base_url('assets/ornamen/konten/'.$keranjang->ornamen6); ?>" class="img_pop pull-left">      
     </div>
     <div class="pop_bawah">
-      <img src="<?php echo base_url(); ?>assets/ornamen/bawah/bawah.jpg" class="img_pop">      
+      <img src="<?php echo base_url('assets/ornamen/bawah/'.$keranjang->ornamen_bawah); ?>" class="img_pop img-responsive">      
     </div>
     <div class="pop_gambar">
-      <img src="<?php echo base_url(); ?>assets/uploads/orders/<?php echo $keranjang->gambar ?>" class="img_pop">
+      <img src="<?php echo base_url('assets/uploads/orders/'.$keranjang->gambar); ?>" class="img_pop img-responsive">
     </div>
   </div>
 </div>                          

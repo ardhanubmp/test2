@@ -5,3 +5,6 @@
         $('#table-history').DataTable();
       } );
   </script>
+
+<!-- END SECTION KONTEN -->
+

@@ -71,7 +71,7 @@
   <script src="<?php echo base_url(); ?>assets/front/assets/js/jquery.waypoints.js"></script>
   <script src="<?php echo base_url(); ?>assets/front/assets/js/jquery.countTo.js"></script>
   <script src="<?php echo base_url(); ?>assets/front/assets/js/page/theme.js"></script>
-  <script src="<?php echo base_url(); ?>assets/front/assets/js/page/page.home.js"></script>
+  <!--<script src="<?php echo base_url(); ?>assets/front/assets/js/page/page.home.js"></script>-->
   <script src="style-switcher/style-switcher.js"></script>
 
 

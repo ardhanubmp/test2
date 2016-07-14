@@ -23,6 +23,9 @@ class Merchandise extends MY_Controller {
 		parent::__construct();
 		$this->load->library('template_front');
 		$this->load->model('Keranjang_model');
+		$this->load->model('OrnamenAtas_model');
+		$this->load->model('OrnamenKonten_model');
+		$this->load->model('OrnamenBawah_model');
 		$this->load->helper('text');
 		$this->id_user = $this->session->userdata('id_user');
 	}
@@ -34,13 +37,31 @@ class Merchandise extends MY_Controller {
 		);
 	}
 
+	public function mobile(){
+		$arr_ornamen_atas = $this->OrnamenAtas_model->getOrnamenAtas();
+		$arr_ornamen_konten = $this->OrnamenKonten_model->getOrnamenKonten();
+		$arr_ornamen_bawah = $this->OrnamenBawah_model->getOrnamenBawah();
+
+		$this->template_front->display(
+			array(
+				'content'=>'front/merchandise/content_mobile',
+				'javascript'=>'front/merchandise/custom_js_mobile'
+			),
+			array(
+				'arr_ornamen_atas'=>$arr_ornamen_atas,
+				'arr_ornamen_konten'=>$arr_ornamen_konten,
+				'arr_ornamen_bawah'=>$arr_ornamen_bawah
+			)
+		);
+	}
+
 	public function keranjang(){
 
 		//konfigutasi file upload
 		$config['upload_path']          = './assets/uploads/orders/';
-        $config['allowed_types']        = 'gif|jpg|png';
+        $config['allowed_types']        = 'jpg|jpeg|png';
         $config['encrypt_name']        = TRUE;
-        $config['max_size']             = 400;
+        $config['max_size']             = 900;
 		$config['max_width']            = 1024;
 		$config['max_height']           = 1024;
 		$this->load->library('upload', $config);
@@ -66,16 +87,31 @@ class Merchandise extends MY_Controller {
 		        		'rules'=>'required',
 		        		'errors' => array(
 		                        'required' => ' %s Perlu diisi.')
-		                
+		        ),
+		        array(
+		        		'field'=>'ornamen_atas',
+		        		'label'=>'Ornamen Atas',
+		        		'rules'=>'required',
+		        		'errors' => array(
+		                        'required' => ' %s Perlu dipilih.')
+		        ),
+		        array(
+		        		'field'=>'ornamen_bawah',
+		        		'label'=>'Ornamen Bawah',
+		        		'rules'=>'required',
+		        		'errors' => array(
+		                        'required' => ' %s Perlu dipilih.')
 		        )
 		);
 		$this->form_validation->set_rules($config);
 
 		// exception untuk validasi form
 		if ($this->form_validation->run() == FALSE) {
-			$this->template_front->display(
-				array('content'=>'front/merchandise/content')
-			);
+			if ($this->input->post('device')=='mobile') {
+				$this->mobile();
+			}else{
+				$this->index();
+			}
 		}else{
 			// sudah melewati validasi
 				// proses upload foto
@@ -85,6 +121,14 @@ class Merchandise extends MY_Controller {
 				$data=array(
 					'ucapan_atas'=>$this->input->post('ucapan_atas'),
 					'ucapan_bawah'=>$this->input->post('ucapan_bawah'),
+					'ornamen_atas'=>$this->input->post('ornamen_atas'),
+					'ornamen1'=>$this->input->post('ornamen1'),
+					'ornamen2'=>$this->input->post('ornamen2'),
+					'ornamen3'=>$this->input->post('ornamen3'),
+					'ornamen4'=>$this->input->post('ornamen4'),
+					'ornamen5'=>$this->input->post('ornamen5'),
+					'ornamen6'=>$this->input->post('ornamen6'),
+					'ornamen_bawah'=>$this->input->post('ornamen_bawah'),
 					'gambar'=>$this->upload->data('file_name'),
 					'id_user'=>$this->id_user
 				);
@@ -95,11 +139,17 @@ class Merchandise extends MY_Controller {
 			}else{
 				// jika gagal upload foto maka diredirect ke halaman merchandise
 				$this->session->set_flashdata('msg_error_upload',$this->upload->display_errors());
-				redirect('member/merchandise');
+				if ($this->input->post('device')=='mobile') {
+					$this->mobile();
+				}else{
+					$this->index();
+				}
+				// redirect('member/merchandise');
 			}
 				
 			
 			
 		}
 	}
+
 }

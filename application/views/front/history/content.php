@@ -165,20 +165,7 @@
 
       </div>
     </div>
-<!-- END SECTION KONTEN -->
 
-<script type="text/javascript">
-window.pilih_alamat = function() {
-  if(document.getElementById("alamat_baru1").checked) {
-    document.getElementById("input_alamat").readOnly = false;
-    document.getElementById("input_alamat").value = '';
-  } else {
-    document.getElementById("input_alamat").readOnly = true;
-    document.getElementById("input_alamat").value = '<?php echo $alamat_user; ?>';
-  }
-}  
-window.onload = pilih_alamat();
-</script>
 
 
 <!-- modal konfirmasi hapus -->

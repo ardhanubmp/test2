@@ -125,31 +125,7 @@ class Keranjang extends MY_Controller {
 		// exception untuk mengecek apakah formnya sudah valid
 		if ($this->form_validation->run() == FALSE) {
 
-			// $arr_keranjang = $this->Keranjang_model->getKeranjangByIdUser($this->id_user);
-			// $arr_kota = $this->Kota_model->getKota();
-			// $arr_harga = $this->Harga_model->getHarga();
-			// $arr_user = $this->User_model->getUserById($this->id_user);
-
-			// foreach ($arr_harga as $harga) {
-			// 	$harga_value = $harga->harga;
-			// }
-			// foreach ($arr_user as $user) {
-			// 	$alamat_user = $user->alamat;
-			// }
-			// $this->template_front->display(
-			// 	array(
-			// 		'content'=>'front/keranjang/content',
-			// 		'javascript'=>'front/keranjang/custom_js',
-			// 		'stylesheet'=>'front/keranjang/custom_css'
-			// 	),
-			// 	array(
-			// 		'arr_keranjang'=>$arr_keranjang,
-			// 		'arr_kota'=>$arr_kota,
-			// 		'harga'=>$harga_value,
-			// 		'alamat_user'=>$alamat_user
-			// 	)
-			// );
-			$this->index;
+			$this->index();
 		}else{
 			// jika form sudah valid
 
@@ -157,8 +133,10 @@ class Keranjang extends MY_Controller {
 			$kode_voucher=$this->input->post('kode_voucher');
 			if (!empty($kode_voucher)) {
 				// jika vouchernya diisi
-				$cek_voucher = $this->Voucher_model->cek_voucher(array('kode'=>$kode_voucher));
-				// exception apakah vouchernya ada atau tidak
+				$cek_voucher = $this->Voucher_model->cek_voucher(array(
+					'kode'=>$kode_voucher,'status_voucher'=>'aktif'
+				));
+				// exception apakah vouchernya ada atau tidak dan statusnya aktif
 				if ($cek_voucher->num_rows() ==1) {
 					// jika vouchernya ada dan benar
 
@@ -175,7 +153,7 @@ class Keranjang extends MY_Controller {
 					// redirect('member/keranjang/berhasil_pesan');
 					$this->berhasil_pesan($insert_id);
 				}else{
-					// echo "voucher salah";
+					// jika vouchernya diisi tapi salah
 					$this->session->set_flashdata('msg_error_upload','Voucher yang anda masukkan salah');
 					redirect('member/keranjang');
 				}
@@ -328,12 +306,12 @@ class Keranjang extends MY_Controller {
 				'gambar'=>$keranjang->gambar,
 				'ornamen_atas'=>$keranjang->ornamen_atas,
 				'ornamen_bawah'=>$keranjang->ornamen_bawah,
-				'ornamen_kiri_1'=>$keranjang->ornamen_kiri_1,
-				'ornamen_kiri_2'=>$keranjang->ornamen_kiri_2,
-				'ornamen_kiri_3'=>$keranjang->ornamen_kiri_3,
-				'ornamen_kanan_1'=>$keranjang->ornamen_kanan_1,
-				'ornamen_kanan_2'=>$keranjang->ornamen_kanan_2,
-				'ornamen_kanan_3'=>$keranjang->ornamen_kanan_3,
+				'ornamen1'=>$keranjang->ornamen1,
+				'ornamen2'=>$keranjang->ornamen2,
+				'ornamen3'=>$keranjang->ornamen3,
+				'ornamen4'=>$keranjang->ornamen4,
+				'ornamen5'=>$keranjang->ornamen5,
+				'ornamen6'=>$keranjang->ornamen6,
 				'sub_total'=>$this->harga(),
 				'id_transaksi'=>$id_transaksi
 				);

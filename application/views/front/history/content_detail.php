@@ -81,7 +81,7 @@
                           <?php if (empty($transaksi->id_voucher)): ?>
                             Anda tidak menggunakan Voucher
                           <?php else: ?>
-                            RAMADHAN (20%)
+                            <?php echo $transaksi->kode." ( ".$transaksi->persen."% ) "; ?>
                           <?php endif ?>
                         </p>
                         <h3 class="text-theme title-md hr-left">Biaya</h3>
@@ -106,7 +106,7 @@
                                 <?php if (empty($transaksi->id_voucher)): ?>
                                     (-)
                                   <?php else: ?>
-                                    (-) Rp 100000
+                                    (-) Rp <?php echo $total['potongan']; ?>
                                 <?php endif ?>
                               </h3></td>
                             </tr>
@@ -116,7 +116,7 @@
                                 <?php if (empty($transaksi->id_voucher)): ?>
                                   Rp <?php echo $total['sub_total']; ?>
                                 <?php else: ?>
-
+                                  Rp <?php echo $total['sub_total_after']; ?>
                                 <?php endif ?>
                               </h3></td>
                             </tr>
@@ -184,34 +184,34 @@
 <div class="popuptube pull-left" id="content">
   <div class="base">
     <div class="pop_atas">
-      <img src="<?php echo base_url(); ?>assets/ornamen/atas/atas.jpg" draggable="false" class="img_pop img-responsive">
+      <img src="<?php echo base_url('assets/ornamen/atas/'.$transaksi_detail->ornamen_atas); ?>" draggable="false" class="img_pop img-responsive">
     </div>
     <div class="pop_ornamen1">
-      <img src="<?php echo base_url(); ?>assets/ornamen/konten/1.jpg" class="img_pop pull-right">
-    </div>
-    <div class="pop_ornamen4">
-      <img src="<?php echo base_url(); ?>assets/ornamen/konten/4.jpg" class="img_pop pull-left">
+      <img src="<?php echo base_url('assets/ornamen/konten/'.$transaksi_detail->ornamen1); ?>" class="img_pop pull-right">
     </div>
     <div class="pop_ornamen2">
-      <img src="<?php echo base_url(); ?>assets/ornamen/konten/2.jpg" class="img_pop pull-right">
-    </div>
-    <div class="pop_ornamen5">
-      <img src="<?php echo base_url(); ?>assets/ornamen/konten/5.jpg" class="img_pop pull-left">
+      <img src="<?php echo base_url('assets/ornamen/konten/'.$transaksi_detail->ornamen2); ?>" class="img_pop pull-left">
     </div>
     <div class="pop_ornamen3">
-      <img src="<?php echo base_url(); ?>assets/ornamen/konten/3.jpg" class="img_pop pull-right">
+      <img src="<?php echo base_url('assets/ornamen/konten/'.$transaksi_detail->ornamen3); ?>" class="img_pop pull-right">
+    </div>
+    <div class="pop_ornamen4">
+      <img src="<?php echo base_url('assets/ornamen/konten/'.$transaksi_detail->ornamen4); ?>" class="img_pop pull-left">
+    </div>
+    <div class="pop_ornamen5">
+      <img src="<?php echo base_url('assets/ornamen/konten/'.$transaksi_detail->ornamen5); ?>" class="img_pop pull-right">
     </div>
     <div class="pop_ornamen6">
-      <img src="<?php echo base_url(); ?>assets/ornamen/konten/6.jpg" class="img_pop pull-left">      
+      <img src="<?php echo base_url('assets/ornamen/konten/'.$transaksi_detail->ornamen6); ?>" class="img_pop pull-left">      
     </div>
     <div class="pop_bawah">
-      <img src="<?php echo base_url(); ?>assets/ornamen/bawah/bawah.jpg" class="img_pop img-responsive">      
+      <img src="<?php echo base_url('assets/ornamen/bawah/'.$transaksi_detail->ornamen_bawah); ?>" class="img_pop img-responsive">      
     </div>
     <div class="pop_gambar">
-      <img src="<?php echo base_url(); ?>assets/uploads/orders/<?php echo $transaksi_detail->gambar ?>" class="img_pop img-responsive">
+      <img src="<?php echo base_url('assets/uploads/orders/'.$transaksi_detail->gambar); ?>" class="img_pop img-responsive">
     </div>
   </div>
-</div>                         
+</div>                        
                       </div>
                       <div class="col-md-6">
                         <table class="table table-bordered">
