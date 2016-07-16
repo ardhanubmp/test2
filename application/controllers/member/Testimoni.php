@@ -65,12 +65,22 @@ class Testimoni extends MY_Controller {
 			$this->index();
 		}else{
 			// jika valid dan diisi maka diproses
+
+			$query_testimoni = $this->Testimoni_model->cek_testimoni(array('id_user'=>$this->id_user));
+			
 			$data=array(
 				'isi_testimoni'=>$this->input->post('isi_testimoni'),
 				'status'=>'non-aktif',
 				'id_user'=>$this->id_user
 				);
-			$this->Testimoni_model->insertTestimoni($data);
+			if ($query_testimoni->num_rows()==0) {
+				//jika belum pernah mengisi testimoni
+				$this->Testimoni_model->insertTestimoni($data);
+			}else{
+				//jika sudah pernah mengisi testimoni
+				$this->Testimoni_model->updateTestimoni($this->id_user,$data);
+			}
+			
 			$this->session->set_flashdata('msg_success','Testimoni berhasil disimpan');
 			redirect('member/testimoni');
 		}

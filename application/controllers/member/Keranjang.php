@@ -301,8 +301,9 @@ class Keranjang extends MY_Controller {
 
 		foreach ($arr_keranjang as $keranjang) {
 			$data=array(
-				'ucapan_atas'=>$keranjang->ucapan_atas,
-				'ucapan_bawah'=>$keranjang->ucapan_bawah,
+				'ucapan'=>$keranjang->ucapan,
+				'tema'=>$keranjang->tema,
+				'tambahan'=>$keranjang->tambahan,
 				'gambar'=>$keranjang->gambar,
 				'ornamen_atas'=>$keranjang->ornamen_atas,
 				'ornamen_bawah'=>$keranjang->ornamen_bawah,

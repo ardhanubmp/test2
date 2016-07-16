@@ -55,11 +55,44 @@
                     <input name="password2" value="<?php echo set_value('password2'); ?>" type="password" class="form-control" id="pass2" onkeyup="checkPass(); return false;" placeholder="Password">
                     <span id="confirmMessage" class="confirmMessage"></span>
                   </div>
+                  <div class="form-group">
+                    <label for="inputPassword">Tanggal Lahir</label>
+                    <div class="col-md-12">
+                      <select name="tanggal">
+                        <?php for ($i=1; $i <=31; $i++) { ?>
+                          <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                        <?php } ?>
+                      </select>
+                      <select name="bulan">
+                        <?php 
+                        for($i = 1 ; $i <= 12; $i++) {
+                            $month = date("F",mktime(0,0,0,$i,1,date("Y")));
+                                echo "<option value='$i'>" .   $month . "</option>";
+                        }
+                        ?>
+                      </select>
+                      <select name="tahun">
+                        <?php 
+                        $year = date('Y');
+                        for ($i=1981; $i <=$year; $i++) { ?>
+                          <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword">Jenis Kelamin</label>
+                    <div class="col-md-12">
+                    <input name="jenis_kelamin" type="radio" value="laki-laki">Laki - Laki</input>
+                    <input name="jenis_kelamin" type="radio" value="perempuan">Perempuan</input>
+                    </div>
+                  </div>
                   <!-- <div class="checkbox">
                     <label>
                       <input type="checkbox"> I read terms and conditions</label>
                   </div> -->
-                  <button type="submit" class="btn btn-primary" id="btn_daftar" >Register</button>
+                  <hr class="hr-divider-ghost">
+                  <button type="submit" class="btn btn-primary btn-lg" id="btn_daftar" >Mendaftar</button>
                 </form>
               </div>
             </div>

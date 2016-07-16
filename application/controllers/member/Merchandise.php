@@ -75,15 +75,15 @@ class Merchandise extends MY_Controller {
 		}
 		$config = array(
 		        array(
-		                'field' => 'ucapan_atas',
-		                'label' => 'Ucapan atas',
+		                'field' => 'ucapan',
+		                'label' => 'Ucapan',
 		                'rules' => 'required',
 		                'errors' => array(
 		                        'required' => ' %s Perlu diisi.')
 		        ),
 		        array(
-		        		'field'=>'ucapan_bawah',
-		        		'label'=>'Ucapan bawah',
+		        		'field'=>'tema',
+		        		'label'=>'Tema',
 		        		'rules'=>'required',
 		        		'errors' => array(
 		                        'required' => ' %s Perlu diisi.')
@@ -119,8 +119,9 @@ class Merchandise extends MY_Controller {
 				# code...
 				// jika berhasil upload foto maka selanjutnya insert data ke database
 				$data=array(
-					'ucapan_atas'=>$this->input->post('ucapan_atas'),
-					'ucapan_bawah'=>$this->input->post('ucapan_bawah'),
+					'ucapan'=>$this->input->post('ucapan'),
+					'tema'=>$this->input->post('tema'),
+					'tambahan'=>$this->input->post('tambahan'),
 					'ornamen_atas'=>$this->input->post('ornamen_atas'),
 					'ornamen1'=>$this->input->post('ornamen1'),
 					'ornamen2'=>$this->input->post('ornamen2'),

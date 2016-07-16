@@ -61,9 +61,24 @@ class Daftar extends CI_Controller {
 		                'rules' => 'required'
 		        ),
 		        array(
-		                'field' => 'email',
-		                'label' => 'Email',
+		                'field' => 'tanggal',
+		                'label' => 'Tanggal',
 		                'rules' => 'required|callback_email_check'
+		        ),
+		        array(
+		                'field' => 'bulan',
+		                'label' => 'Bulan',
+		                'rules' => 'required'
+		        ),
+		        array(
+		                'field' => 'tahun',
+		                'label' => 'Tahun',
+		                'rules' => 'required'
+		        ),
+		        array(
+		                'field' => 'jenis_kelamin',
+		                'label' => 'Jenis Kelamin',
+		                'rules' => 'required'
 		        )
 		);
 		$this->form_validation->set_rules($config);
@@ -75,12 +90,15 @@ class Daftar extends CI_Controller {
 			);
 		}else{
 			// sukses validasi
+			$tgl_lahir = $this->input->post('tahun')."-".$this->input->post('bulan')."-".$this->input->post('tanggal');
 			$data=array(
 				'username'=>$this->input->post('username'),
 				'nama_lengkap'=>$this->input->post('nama_lengkap'),
 				'email'=>$this->input->post('email'),
 				'password'=>md5($this->input->post('password')),
-				'level'=>'member'
+				'level'=>'member',
+				'tgl_lahir'=>$tgl_lahir,
+				'jenis_kelamin'=>$this->input->post('jenis_kelamin')
             );
             // insert data 
 				$this->User_model->insertUser($data);

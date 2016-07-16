@@ -78,22 +78,31 @@
                   <!-- <form class="form-horizontal"> -->
                       
                       <div class="form-group">
-                        <label class="control-label col-sm-2">Ucapan Atas</label>
+                        <label class="control-label col-sm-2">Ucapan</label>
                         <div class="col-sm-10">
-                          <input name="ucapan_atas" type="text" class="form-control" placeholder="Selamat Ulang tahun"  value="<?php echo set_value('ucapan_atas') ?>"></input>
+                          <input name="ucapan" type="text" class="form-control" placeholder="cth : Selamat Ulang tahun"  value="<?php echo set_value('ucapan') ?>"></input>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-sm-2">Ucapan Bawah</label>
+                        <label class="control-label col-sm-2">Tema</label>
                         <div class="col-sm-10">
-                          <input name="ucapan_bawah" type="text" class="form-control" placeholder="Sukses selalu" value="<?php echo set_value('ucapan_bawah') ?>"></input>
+                          <input name="tema" type="text" class="form-control" placeholder="cth : Ulang tahun" value="<?php echo set_value('tema') ?>"></input>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-2">Tambahan</label>
+                        <div class="col-sm-10">
+
+                          <textarea name="tambahan" class="form-control" placeholder="cth : tolong dikasih backkground bunga bunga dong kayak yang di galeri itu"><?php echo set_value('tambahan') ?></textarea>
+                          <small><i>*jika anda ingin menambahkan ornamen, atau custom konten silahkan isi diatas ini</i></small> 
                         </div>
                       </div>
                       <div class="form-group">
                           <label for="inputEmail" class="control-label col-sm-2">Foto</label>
                           <div class="col-sm-10">
                             <input name="gambar" type="file" id="fileselect" class="form-control"></input>
-                            <small><i>Ukuran Max <b>900 kb</b> , jenis file = <b>jpg dan png</b></i></small>
+                            <small><i>Ukuran Max <b>900 kb</b> , jenis file = <b>jpg dan png</b></i></small><br>
+                            <small><i>Foto nanti kita edit , jadi tidak perlu di crop sendiri :D</i></small>
                             <div id="progress"></div>
                                 <!-- <div id="messages">
                                 

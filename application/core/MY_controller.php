@@ -8,5 +8,15 @@ class MY_controller extends  CI_controller
 		if ($this->session->userdata('logged_in')=="") {
 			redirect('auth');
 		}
-    }	
+    }
+
+    public function has_permission( $level = '' ){
+        if($this->get_level() != $level){
+            redirect(base_url(), 'refresh');
+        }
+    }
+
+    public function get_level(){
+        return ( empty($this->session->userdata('level'))) ? LEVEL_PUBLIC : $this->session->userdata('level');
+    }
 }

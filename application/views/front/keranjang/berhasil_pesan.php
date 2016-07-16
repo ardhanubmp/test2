@@ -44,7 +44,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <?php echo $this->session->flashdata('msg_success'); ?>
               </div>
-              <?php endif ?>
+              <?php endif ?>  
 
               <?php if (!empty($this->session->flashdata('msg_error_upload'))): ?>
               <!-- alert jika ada error ketika upload -->
@@ -109,8 +109,9 @@
                       <thead>
                           <tr>
                               <th>#</th>
-                              <th>Ucapan atas</th>
-                              <th>Ucapan bawah</th>
+                              <th>Ucapan</th>
+                              <th>Tema</th>
+                              <th>Tambahan</th>
                               <th>Foto</th>
                               <th>Total</th>
                           </tr>
@@ -120,8 +121,9 @@
                         <?php foreach ($arr_transaksi_detail as $transaksi_detail): ?>
                           <tr>
                               <td><?php echo $no; ?></td>
-                              <td><?php echo $transaksi_detail->ucapan_atas; ?></td>
-                              <td><?php echo $transaksi_detail->ucapan_bawah; ?></td>
+                              <td><?php echo $transaksi_detail->ucapan; ?></td>
+                              <td><?php echo $transaksi_detail->tema; ?></td>
+                              <td><?php echo $transaksi_detail->tambahan; ?></td>
                               <td>
                                 <a href="<?php echo base_url(); ?>assets/uploads/orders/<?php echo $transaksi_detail->gambar; ?>" target="_blank">
                                   <img src="<?php echo base_url(); ?>assets/uploads/orders/<?php echo $transaksi_detail->gambar; ?>" class="img-responsive img-thumbnail thumb_keranjang">

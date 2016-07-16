@@ -181,7 +181,7 @@
                       <div class="col-md-6">  
                       <!-- konten pop up tube -->
                         <!-- <img src="https://placehold.it/400x500" class="img-responsive"> -->
-<div class="popuptube pull-left" id="content">
+<div class="popuptube center-block" id="content">
   <div class="base">
     <div class="pop_atas">
       <img src="<?php echo base_url('assets/ornamen/atas/'.$transaksi_detail->ornamen_atas); ?>" draggable="false" class="img_pop img-responsive">
@@ -217,15 +217,17 @@
                         <table class="table table-bordered">
                           <thead>
                             <tr>
-                              <td>Ucapan atas</td>
-                              <td>Ucapan Bawah</td>
+                              <td>Ucapan</td>
+                              <td>Tema</td>
+                              <td>Tambahan</td>
                               <td>Foto</td>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td><?php echo $transaksi_detail->ucapan_atas; ?></td>
-                              <td><?php echo $transaksi_detail->ucapan_bawah; ?></td>
+                              <td><?php echo $transaksi_detail->ucapan; ?></td>
+                              <td><?php echo $transaksi_detail->tema; ?></td>
+                              <td><?php echo $transaksi_detail->tambahan; ?></td>
                               <td>
                                 <a href="<?php echo base_url('assets/uploads/orders/'.$transaksi_detail->gambar); ?>" target="_blank">
                                 <img src="<?php echo base_url('assets/uploads/orders/'.$transaksi_detail->gambar); ?>" class="img-thumbnail thumb_keranjang">    

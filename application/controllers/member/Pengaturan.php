@@ -42,7 +42,7 @@ class Pengaturan extends MY_Controller {
 		$config['upload_path']          = './assets/uploads/users/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['encrypt_name']        = TRUE;
-        $config['max_size']             = 200;
+        $config['max_size']             = 500;
 		$config['max_width']            = 1024;
 		$config['max_height']           = 768;
 		$this->load->library('upload', $config);
@@ -86,6 +86,7 @@ class Pengaturan extends MY_Controller {
 				// jika kosong maka diupload tanpa hapus gambar sebelumnya
 				$this->upload->do_upload('gambar');
 				$this->session->set_flashdata('msg_error_upload',$this->upload->display_errors());
+				$gambar=$this->upload->data('file_name');
 			}else{
 				// jika telah terisi ditentukan apakah diupdate apa tidak, 
 				if ($this->upload->do_upload('gambar')) {

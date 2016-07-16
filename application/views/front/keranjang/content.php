@@ -62,8 +62,9 @@
                   <thead>
                       <tr>
                           <th>#</th>
-                          <th>Ucapan atas</th>
-                          <th>Ucapan bawah</th>
+                          <th>Ucapan</th>
+                          <th>Tema</th>
+                          <th>Tambahan</th>
                           <th>Total</th>
                           <th>Foto</th>
                           <th>Aksi</th>
@@ -73,8 +74,9 @@
                     <?php foreach ($arr_keranjang as $keranjang): ?>
                       <tr>
                           <td><?php echo $keranjang->id_keranjang; ?></td>
-                          <td><?php echo $keranjang->ucapan_atas; ?></td>
-                          <td><?php echo $keranjang->ucapan_bawah; ?></td>
+                          <td><?php echo $keranjang->ucapan; ?></td>
+                          <td><?php echo $keranjang->tema; ?></td>
+                          <td><?php echo $keranjang->tambahan; ?></td>
                           <td><?php echo $harga; ?></td>
                           <td>
                             <a href="<?php echo base_url(); ?>assets/uploads/orders/<?php echo $keranjang->gambar; ?>" target="_blank">
