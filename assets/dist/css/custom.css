@@ -100,6 +100,11 @@ max-height: 40px;
 max-width: 100px;
 overflow: hidden;
 }
+.thumb_foto_md{
+max-height: 100px;
+max-width: 100px;
+overflow: hidden;
+}
 .title-sm{
 	font-size: 20px;
 font-weight: 700;

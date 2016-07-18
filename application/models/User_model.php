@@ -20,6 +20,11 @@ class User_model extends CI_Model
 		$query = $this->db->get($this->table);
 		return $query->result();
 	}
+	public function getUserNoAdmin(){
+		$this->db->where('level!=','admin');
+		$query = $this->db->get($this->table);
+		return $query->result();
+	}
 	public function getUserById($id_user){
 		$this->db->where('id_user',$id_user);
 		$query = $this->db->get($this->table);
@@ -33,7 +38,9 @@ class User_model extends CI_Model
 		$this->db->update($this->table,$data);
 	}
 	public function deleteUser($id_user){
-		$this->db->delete($this->table,array('id_user'=>$id_user));
+		if (! $this->db->delete($this->table,array('id_user'=>$id_user))) {
+			return $this->db->error();
+		}
 	}
 }
  ?>

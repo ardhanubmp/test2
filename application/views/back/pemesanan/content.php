@@ -17,6 +17,29 @@
 
           <!-- Main row -->
           <div class="row">
+            <div class="col-md-12">
+              <?php if (!empty($this->session->flashdata('msg_success'))): ?>
+                <!-- alert jika sukses simpan -->
+                <div class="alert alert-success alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <?php echo $this->session->flashdata('msg_success'); ?>
+                </div>
+              <?php endif ?>
+
+              <?php if (!empty($this->session->flashdata('msg_error'))): ?>
+                <!-- alert jika ada error ketika upload -->
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <?php echo $this->session->flashdata('msg_error'); ?>
+                </div>
+              <?php endif ?>
+
+              <!-- alert jika ada form error -->
+              <?php echo validation_errors('<div class="alert alert-danger alert-dismissible" role="alert">
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>','</div>'); ?>              
+            </div>
+          </div>          
+          <div class="row">
             <!-- Left col -->
             <section class="col-lg-12">
 
@@ -62,7 +85,7 @@
                           <td><?php echo $transaksi->tgl_pesan; ?></td>
                           <td>
                             <a href="<?php echo base_url('admin/pemesanan/detail/'.$transaksi->id_transaksi); ?>" class="btn btn-default"><i class="fa fa-search-plus"></i>Lihat</a>
-                            <button class="btn btn-default" type="button" data-toggle="modal" data-target="#deleteModal" data-link="1"><i class="fa fa-trash"></i>Hapus</button>
+                            <button class="btn btn-default" type="button" data-toggle="modal" data-target="#deleteModal" data-link="pemesanan/hapus/<?php echo $transaksi->id_transaksi; ?>"><i class="fa fa-trash"></i>Hapus</button>
                           </td>
                       </tr>
                       <?php endforeach ?>
@@ -73,26 +96,26 @@
               </div><!-- /.box (chat box) -->
             </section><!-- /.Left col -->
 
-          <!-- Modal -->
+              <!-- Modal -->
 
 
-          <div class="modal fade modal-danger" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog modal-sm" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">Hapus Transaksi</h4>
-                </div>
-                <div class="modal-body">
-                  Apakah anda ingin menghapus Transaksi ini ?
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <a id="linkDelete" class="btn btn-danger">Hapus</a>
+              <div class="modal fade modal-danger" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-sm" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Hapus Transaksi</h4>
+                    </div>
+                    <div class="modal-body">
+                      Apakah anda ingin menghapus Transaksi ini ?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <a id="linkDelete" class="btn btn-danger">Hapus</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
           </div><!-- /.row (main row) -->
 
         </section><!-- /.content -->

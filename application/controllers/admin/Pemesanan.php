@@ -98,6 +98,18 @@ class Pemesanan extends MY_controller {
 		redirect('admin/pemesanan/detail/'.$id_transaksi);
 	}	
 
+	public function hapus($id_transaksi){
+		$arr_transaksi_detail = $this->Transaksi_Detail_model->getTransaksi_DetailByTran($id_transaksi);
+		foreach ($arr_transaksi_detail as $transaksi_detail) {
+			$gambar = $transaksi_detail->gambar;
+			unlink('./assets/uploads/orders/'.$gambar);
+			// echo './assets/uploads/orders/'.$gambar;
+		}
+		$this->Transaksi_model->deleteTransaksi($id_transaksi);
+		$this->session->set_flashdata('msg_success','Data transaksi beserta foto pelanggan telah dihapus');
+		redirect('admin/pemesanan');
+	}
+
 	public function total_no_vou($id_transaksi){
 		$arr_transaksi = $this->Transaksi_model->getTransaksiNoVou($id_transaksi);
 		foreach ($arr_transaksi as $transaksi) {

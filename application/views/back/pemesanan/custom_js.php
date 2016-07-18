@@ -55,8 +55,42 @@ $('#viewMerchandise').on('show.bs.modal', function (event) {
   modal.find('#linkornamen6').attr('src',basekonten+ornamen6)
   modal.find('#linkornamenbawah').attr('src',basebawah+ornamenbawah)
   modal.find('#linkgambar').attr('src',basegambar+gambar)
+  // memasukkan ke tabel
+  modal.find('#rowOrnamenatas').html(ornamenatas)
+  modal.find('#rowOrnamen1').html(ornamen1)
+  modal.find('#rowOrnamen2').html(ornamen2)
+  modal.find('#rowOrnamen3').html(ornamen3)
+  modal.find('#rowOrnamen4').html(ornamen4)
+  modal.find('#rowOrnamen5').html(ornamen5)
+  modal.find('#rowOrnamen6').html(ornamen6)
+  modal.find('#rowOrnamenbawah').html(ornamenbawah)
+  //download
+  modal.find('#downloadFoto').attr('href',basegambar+gambar)
+
 })
 
+    function Popup(elem) 
+    {
+        data = $(elem).html();
+        var mywindow = window.open('', 'my div', 'height=400,width=600');
+        mywindow.document.write('<html><head><title>my div</title>');
+        /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
+        // var button = $(event.relatedTarget) // Button that triggered the modal
+        // var type = button.data('type')
+        
+        // var bulan = button.data('bulan');
+        // var tahun = button.data('tahun');
+        mywindow.document.write('</head><body>');
+        mywindow.document.write(data);
+        mywindow.document.write('</body></html>');
 
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10
+
+        // mywindow.print();
+        // mywindow.close();
+
+        return true;
+    }
 
 </script>

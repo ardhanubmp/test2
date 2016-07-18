@@ -179,11 +179,12 @@
                     </thead>
                     <tbody>
                       <?php foreach ($arr_transaksi_detail as $transaksi_detail): ?>  
+                        <?php $link_gambar = base_url('assets/uploads/orders/'.$transaksi_detail->gambar); ?>
                       <tr>
                         <td><?php echo $transaksi_detail->ucapan; ?></td>
                         <td><?php echo $transaksi_detail->tema; ?></td>
                         <td><?php echo $transaksi_detail->tambahan; ?></td>
-                        <td><img src="<?php echo base_url('assets/uploads/orders/'.$transaksi_detail->gambar); ?>" class="img-thumbnail thumb_foto"></td>
+                        <td><a href="<?php echo $link_gambar; ?>" target="_blank" download><img src="<?php echo $link_gambar; ?>" class="img-thumbnail thumb_foto"></a></td>
                         <td>
                           <button class="btn btn-default" data-target="#viewMerchandise" data-toggle="modal"
                           data-ornamenatas="<?php echo $transaksi_detail->ornamen_atas; ?>"
@@ -270,7 +271,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Detail Merchandise</h4>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body" >
                     <div class="row">
                       <div class="col-md-6">
                               <div class="popuptube center-block" id="content">
@@ -306,48 +307,64 @@
                               </div>
                       </div>
                       <div class="col-md-6">
-                        <table class="table table-striped table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Ornamen</th>
-                                    <th>Kode</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Atas</td>
-                                    <td>A1234</td>
-                                </tr>
-                                <tr>
-                                    <td>Konten 1</td>
-                                    <td>A1234</td>
-                                </tr>
-                                <tr>
-                                    <td>Konten 1</td>
-                                    <td>A1234</td>
-                                </tr>
-                                <tr>
-                                    <td>Konten 1</td>
-                                    <td>A1234</td>
-                                </tr>
-                                <tr>
-                                    <td>Konten 1</td>
-                                    <td>A1234</td>
-                                </tr>
-                                <tr>
-                                    <td>Konten 1</td>
-                                    <td>A1234</td>
-                                </tr>
-                                <tr>
-                                    <td>Konten 1</td>
-                                    <td>A1234</td>
-                                </tr>
-                                <tr>
-                                    <td>Bawah</td>
-                                    <td>A1234</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div id="cetakMerchandise">
+                          <table class="table table-striped table-bordered" >
+                              <thead>
+                                  <tr>
+                                      <th>Ornamen</th>
+                                      <th>Nama FIle</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>Atas</td>
+                                      <td id="rowOrnamenatas">A1234</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Konten 1</td>
+                                      <td id="rowOrnamen1">A1234</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Konten 2</td>
+                                      <td id="rowOrnamen2">A1234</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Konten 3</td>
+                                      <td id="rowOrnamen3">A1234</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Konten 4</td>
+                                      <td id="rowOrnamen4">A1234</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Konten 5</td>
+                                      <td id="rowOrnamen5">A1234</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Konten 6</td>
+                                      <td id="rowOrnamen6">A1234</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Bawah</td>
+                                      <td id="rowOrnamenbawah">A1234</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                        </div>
+                        <div class="box box-info">
+                          <div class="box-header with-border">
+                            <h3 class="box-title">Ambil</h3>
+                            <div class="box-tools pull-right">
+                              <!-- Buttons, labels, and many other things can be placed here! -->
+                              <!-- Here is a label for example -->
+                              <!-- <span class="label label-primary">Label</span> -->
+                            </div><!-- /.box-tools -->
+                          </div><!-- /.box-header -->
+                          <div class="box-body">
+                            <a id="downloadFoto" target="_blank" class="btn btn-lg btn-primary" download><i class="fa fa-download"></i>Download Foto</a>
+                            <button onclick="Popup('#cetakMerchandise')" class="btn btn-lg btn-primary"><i class="fa fa-print"></i>Cetak</button>
+                          </div><!-- /.box-body -->
+                        </div><!-- /.box -->
                       </div>
                     </div>
                               
