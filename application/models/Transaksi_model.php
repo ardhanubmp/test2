@@ -20,6 +20,12 @@ class Transaksi_model extends CI_Model
 		$query = $this->db->get($this->table);
 		return $query->result();
 	}
+	public function getTransaksiKotaPelanggan(){
+		$this->db->join('kota','kota.id_kota = transaksi.id_kota');
+		$this->db->join('user','user.id_user = transaksi.id_user');
+		$query = $this->db->get($this->table);
+		return $query->result();
+	}
 	public function getTransaksiById($id_transaksi){
 		$this->db->where('id_transaksi',$id_transaksi);
 		$query = $this->db->get($this->table);
@@ -36,6 +42,7 @@ class Transaksi_model extends CI_Model
 		$this->db->where('id_transaksi',$id_transaksi);
 		$this->db->join('voucher','voucher.id_voucher = transaksi.id_voucher');
 		$this->db->join('kota','kota.id_kota = transaksi.id_kota');
+		$this->db->join('user','user.id_user = transaksi.id_user');
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -44,6 +51,7 @@ class Transaksi_model extends CI_Model
 		$this->db->from($this->table);
 		$this->db->where('id_transaksi',$id_transaksi);
 		$this->db->join('kota','kota.id_kota = transaksi.id_kota');
+		$this->db->join('user','user.id_user = transaksi.id_user');
 		$query = $this->db->get();
 		return $query->result();		
 	}

@@ -20,6 +20,16 @@ class Konfirmasi_model extends CI_Model
 		$query = $this->db->get($this->table);
 		return $query->result();
 	}
+	public function getKonfirmasiByTran($id_transaksi){
+		$this->db->where('id_transaksi',$id_transaksi);
+		$query = $this->db->get($this->table);
+		return $query->result();
+	}
+	public function getkonfirmasibyId($id_konfirmasi){
+		$this->db->where('id_konfirmasi',$id_konfirmasi);
+		$query = $this->db->get($this->table);
+		return $query->result();
+	}
 	public function insertKonfirmasi($data){
 		$this->db->insert($this->table,$data);
 	}
