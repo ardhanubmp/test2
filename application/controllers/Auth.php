@@ -34,8 +34,8 @@ class Auth extends CI_Controller {
 				'username'=> $this->input->post('username',TRUE),
 				'password'=> md5($this->input->post('password',TRUE))
 			);
-		echo "username = ".$data['username'];
-			echo "<br>password = ".$data['password'];
+		// echo "username = ".$data['username'];
+			// echo "<br>password = ".$data['password'];
 		$hasil = $this->Login_model->cek_user($data);
 		if ($hasil->num_rows() == 1) {
 			foreach ($hasil->result() as $sess) {
@@ -54,7 +54,7 @@ class Auth extends CI_Controller {
 				redirect('member/dashboard');
 
 			}elseif ($this->session->userdata('level')=='admin') {
-				redirect('admin/dashboard');
+				redirect('admin/penduduk');
 			}
 		}else{
 			echo "<script>alert('Gagal Login:cek username atau password');history.go(-1);</script>";
